@@ -7,7 +7,7 @@
 # 📑 Table of Contents
 - [✨ Features](#-features)
 - [🚧 Work In Progress](#-work-in-progress)
-- [⚙️ Installation](#-installation)
+- [⚙️ Installation](#installation)
 - [📖 Usage](#-usage)
 - [🔧 Compatibility](#-compatibility)
 - [💬 Support](#-support)
