@@ -6,7 +6,6 @@
 
 
 # 📑 Table of Contents
-<<<<<<< HEAD
 - [✨ Features](#-features)
 - [🚧 Work In Progress](#-work-in-progress)
 - [⚙️ Installation](#-installation)
@@ -15,19 +14,8 @@
 - [💬 Support](#-support)
 - [📜 License](#-license)
 - [💖 Acknowledgements](#-acknowledgements)
-## ✨ Features
-=======
-- [✨ Features](#✨Features)
-- [🚧 Work In Progress](#work-in-progress)
-- [⚙️ Installation](#installation)
-- [📖 Usage](#usage)
-- [🔧 Compatibility](#compatibility)
-- [💬 Support](#support)
-- [📜 License](#license)
-- [💖 Acknowledgements](#acknowledgements)
-## ✨Features
->>>>>>> b4e68a2c6449bdcc4fbac50d4c59b738b80cc3c7
 
+## ✨ Features
 - [x]  **System Props Tweaks**: Minimal yet impactful tweaks for enhancing every aspect of an Android phone.
 - [x]  **Auto Security Patches**: Stay secured with automatic updates for security patches.
 - [x]  **Network Enhancements**: Network tweaks applied by default for an optimized online experience.
