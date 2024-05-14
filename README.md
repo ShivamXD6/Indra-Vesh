@@ -1,18 +1,18 @@
 
 # ⚡Indra Vesh Magisk Module 
 
-- Indra Vesh is a powerful Magisk module inspired by the Lord Indra's. Where's "Vesh" means Abhushan (Clothes or Attire). 
-- It's designed to unleash the true potential of your Android device by enhancing performance, managing system resources efficiently, and providing a suite of customizable tweaks.
+- Indra Vesh is a powerful Magisk module inspired by Lord Indra. Where "Vesh" means disguise. 
+- The Power of Lord Indra are being disguised in this module to unleash the true potential of your Android device by enhancing performance, managing system resources efficiently, and providing a suite of customizable tweaks.
 
 # 📑 Table of Contents
-- [✨ Features](#-features)
-- [🚧 Work In Progress](#-work-in-progress)
-- [⚙️ Installation](#-installation)
-- [📖 Usage](#-usage)
-- [🔧 Compatibility](#-compatibility)
-- [💬 Support](#-support)
-- [📜 License](#-license)
-- [💖 Acknowledgements](#-acknowledgements)
+- [✨ Features](https://github.com/FlaxCube/Indra-Vesh/edit/main/README.md#-features)
+- [🚧 Work In Progress](https://github.com/FlaxCube/Indra-Vesh/edit/main/README.md#-work-in-progress)
+- [⚙️ Installation](https://github.com/FlaxCube/Indra-Vesh/edit/main/README.md#%EF%B8%8F-installation)
+- [📖 Usage](https://github.com/FlaxCube/Indra-Vesh/edit/main/README.md#-usage)
+- [🔧 Compatibility](https://github.com/FlaxCube/Indra-Vesh/edit/main/README.md#-compatibility)
+- [💬 Support](https://github.com/FlaxCube/Indra-Vesh/edit/main/README.md#-support)
+- [📜 License](https://github.com/FlaxCube/Indra-Vesh/edit/main/README.md#-license)
+- [💖 Acknowledgements](https://github.com/FlaxCube/Indra-Vesh/edit/main/README.md#-acknowledgements)
 
 ## ✨ Features
 - [x]  **System Props Tweaks**: Minimal yet impactful tweaks for enhancing every aspect of an Android phone.
