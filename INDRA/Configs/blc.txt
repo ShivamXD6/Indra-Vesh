@@ -1,0 +1,5 @@
+BLV=1
+
+BLN1=DT2W
+BLS1=OFF
+BLL1=https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/BLScripts/DT2W.sh?ref_type=heads&inline=false

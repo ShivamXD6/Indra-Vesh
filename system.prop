@@ -1,0 +1,61 @@
+# Latest Security Patch
+ro.build.version.security_patch
+ro.vendor.build.security_patch
+ro.build.version.real_security_patch
+
+# Enable system to perform dexopt job by default and set dexopt profile to everything on bg-dexopt-job
+persist.bg.dexopt.enable=true
+pm.dexopt.bg-dexopt=everything
+pm.dexopt.forced-dexopt=everything
+
+# Unspecialized app process pool
+persist.device_config.runtime_native.usap_pool_refill_delay_ms=3000
+persist.device_config.runtime_native.usap_pool_size_max=10
+persist.device_config.runtime_native.usap_pool_size_min=1
+persist.device_config.runtime_native.usap_refill_threshold=5
+
+# Enable usage of dex2oat64 to better dexopt time
+dalvik.vm.dex2oat64.enabled=1
+arm64.memtag.process.system_server=1
+
+# Disable LMK debugging
+persist.sys.lmk.reportkills=false
+sys.lmk.reportkills=false
+ro.lmk.debug=false
+ro.lmk.log_stats=false
+
+# Disable traced
+persist.traced.enable=0
+persist.traced_perf.enable=0
+
+# Disable vidc debugging
+vendor.vidc.debug.level=0
+vidc.debug.level=0
+
+# Gaming Performance
+debug.performance.tuning=1
+video.accelerate.hw=1
+ 
+# Battery Life
+ro.ril.power_collapse=1
+pm.sleep_mode=1
+ 
+# RAM Management
+ro.HOME_APP_ADJ=1
+dalvik.vm.heapsize=128m
+ 
+# Multitasking
+persist.sys.purgeable_assets=1
+ro.config.nocheckin=1
+ 
+# Touch Response
+debug.performance.tuning=1
+view.touch_slop=10 
+ 
+# Network Speed and Accuracy
+net.tcp.buffersize.default=4096,87380,256960,4096,16384,256960
+ro.ril.hep=1
+ 
+# UI Smoothness
+debug.sf.hw=1
+persist.sys.ui.hw=1

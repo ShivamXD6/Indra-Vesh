@@ -1,0 +1,80 @@
+#!/system/bin/sh
+
+# Binary Lever Configuration 
+BLC="/$CONF/blc.txt"
+
+# Download Config if doesn't Available.
+if [ ! -f $BLC ]; then
+Download https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/Configs/blc.txt?inline=false $BLC
+fi
+
+# Menu
+Menu() {
+    echo -e '\n'
+    printf "\033c" 
+    indc "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Binary Lever ✧✦✧✦✧✦✧✦✧✦ ${N}"
+    indc "${W} ✶ Description - Binary Lever means, options with only 0 or 1 means which can turn on or off just like a switch. ✶ ${N}"
+    indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
+    
+cnt=1
+while true; do
+  name=$(READ "BLN$cnt" $BLC)
+  status=$(READ "BLS$cnt" $BLC)
+  link=$(READ "BLL$option" $BLC)
+  
+  if [ -z "$name" ]; then
+  indc "${R} ✖ [0] Return to Main Menu ${N}"
+    indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
+    indc "${C} ✷ Enter Number to Turn On or Off :  ${N}"   
+    read option
+
+    if [ "$option" == "0" ]; then
+    Return
+
+    elif [ "$option" -lt "$cnt" ] && echo "$option" | grep -qE '^[0-9]+$'; then
+    name=$(READ "BLN$option" $BLC)
+    status=$(READ "BLS$option" $BLC)
+    link=$(READ "BLL$option" $BLC)
+    touch $BLSRT/$name.sh
+    local_size=$(stat -c %s "/$BLSRT/$name.sh")
+   
+    if [ "$local_size" -eq "0" ]; then
+    Download $link $BLSRT/$name.sh
+    fi
+    
+    if [ "$status" = "OFF" ] && [ ! "$local_size" -eq "0" ]; then
+   Turn ON BLS$option $BLC $name
+      source /$BLSRT/$name.sh
+      elif [ "$status" = "ON" ] && [ ! "$local_size" -eq "0" ]; then
+   Turn OFF BLS$option $BLC $name
+      source /$BLSRT/$name.sh      
+else
+    indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" 
+    sleep 5 & e_spinner
+    Menu
+      fi
+fi
+   Menu
+  fi
+  
+  indc "${W} ❐ [$cnt] $name - ($status)"
+  
+  ((cnt++)) 
+    done
+    }
+
+Return() {
+    printf "\033c"
+    indra
+    exit 
+    printf "\033c"
+}
+
+Reboot() {
+    printf "\033c"
+    reboot system
+    printf "\033c"
+}
+
+printf "\033c"
+Menu
