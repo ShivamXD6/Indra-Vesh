@@ -4,7 +4,6 @@
 - Indra Vesh is a powerful Magisk module inspired by the Lord Indra's. Where's "Vesh" means Abhushan (Clothes or Attire). 
 - It's designed to unleash the true potential of your Android device by enhancing performance, managing system resources efficiently, and providing a suite of customizable tweaks.
 
-
 # 📑 Table of Contents
 - [✨ Features](#-features)
 - [🚧 Work In Progress](#-work-in-progress)
@@ -24,15 +23,14 @@
   - [x]  **Binary Lever**: Toggle features or tweaks, on or off, such as enabling or disabling Double Tap to Wake.
 
 ## 🚧 Work in Progress
-
 The following features are currently under development and are not available in the module yet:
 
 - [ ]  **Custom Forge**: Input-driven functionality, such as debloating apps by specifying package names.
 - [ ]  **Magic Kit**: Tools for creating module packages (single zip) and editing module metadata like name and author.
 - [ ]  **Configuration**: Module-specific settings to utilize custom scripts and other user-defined configurations.
 - [ ]  **Updater**: A system to update module submenus (e.g., Binary Lever, Custom Forge) and upgrade all modules with a single click.
-## ⚙️ Installation
 
+## ⚙️ Installation
 To install the Indra Vesh Magisk Module, follow these steps:
 
 1. Download the latest version from the [releases section](Your-GitHub-Releases-Link).
@@ -64,14 +62,14 @@ su -c indra
 ## 🔧 Compatibility
 - It fully supports [Magisk](https://github.com/topjohnwu/Magisk) ```Version: 25.2 and above```.
 - It also supports [Kernel SU](https://github.com/tiann/KernelSU) and [A Patch](https://github.com/bmax121/APatch)
+
 ## 💬 Support
-
 For support join our [Telegram Channel](https://telegram.me/flaxcubegaming).
+
 ## 📜 License
-
 Distributed under the [MIT License](https://choosealicense.com/licenses/mit/).
-## 💖 Acknowledgements
 
+## 💖 Acknowledgements
  - Thanks to [Shrigiri Patil](https://telegram.me/@BosadBillaHun) for ideas used in this module.
  - Thanks to [Divesh Kumar](https://telegram.me/@DIV3SH_KUMAR) for testing this module.
-- Thanks to [Rohit Sir](https://telegram.me/@lazymeao) for helping me in fixing bugs.
+ - Thanks to [Rohit Sir](https://telegram.me/@lazymeao) for helping me in fixing bugs.
