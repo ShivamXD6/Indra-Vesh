@@ -7,7 +7,7 @@
 # 📑 Table of Contents
 - [✨ Features](#-features)
 - [🚧 Work In Progress](#-work-in-progress)
-- [⚙️ Installation](#-installation)
+- [🧰 Installation](#-installation)
 - [📖 Usage](#-usage)
 - [🔧 Compatibility](#-compatibility)
 - [💬 Support](#-support)
@@ -30,7 +30,7 @@ The following features are currently under development and are not available in 
 - [ ]  **Configuration**: Module-specific settings to utilize custom scripts and other user-defined configurations.
 - [ ]  **Updater**: A system to update module submenus (e.g., Binary Lever, Custom Forge) and upgrade all modules with a single click.
 
-## ⚙️ Installation
+## 🧰 Installation
 To install the Indra Vesh Magisk Module, follow these steps:
 
 1. Download the latest version from the [releases section](https://github.com/FlaxCube/Indra-Vesh/releases).
