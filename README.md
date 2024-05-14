@@ -33,7 +33,7 @@ The following features are currently under development and are not available in 
 ## ⚙️ Installation
 To install the Indra Vesh Magisk Module, follow these steps:
 
-1. Download the latest version from the [releases section](Your-GitHub-Releases-Link).
+1. Download the latest version from the [releases section](https://github.com/FlaxCube/Indra-Vesh/releases).
 2. Open the **Magisk Manager** app on your device.
 3. Navigate to the `Modules` section.
 4. Tap on `Install` and select the downloaded Indra Vesh Module zip file.
