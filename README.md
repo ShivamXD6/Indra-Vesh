@@ -6,7 +6,7 @@
 
 
 # 📑 Table of Contents
-- [✨ Features](#✨features)
+- [✨ Features](#✨Features)
 - [🚧 Work In Progress](#work-in-progress)
 - [⚙️ Installation](#installation)
 - [📖 Usage](#usage)
@@ -14,7 +14,7 @@
 - [💬 Support](#support)
 - [📜 License](#license)
 - [💖 Acknowledgements](#acknowledgements)
-## ✨ Features
+## ✨Features
 
 - [x]  **System Props Tweaks**: Minimal yet impactful tweaks for enhancing every aspect of an Android phone.
 - [x]  **Auto Security Patches**: Stay secured with automatic updates for security patches.
