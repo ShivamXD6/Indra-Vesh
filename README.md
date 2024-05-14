@@ -6,7 +6,7 @@
 
 
 # 📑 Table of Contents
-- [✨ Features](#features)
+- [✨ Features](#✨ Features)
 - [🚧 Work In Progress](#work-in-progress)
 - [⚙️ Installation](#installation)
 - [📖 Usage](#usage)
