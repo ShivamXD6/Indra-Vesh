@@ -5,14 +5,14 @@
 - The Power of Lord Indra are being disguised in this module to unleash the true potential of your Android device by enhancing performance, managing system resources efficiently, and providing a suite of customizable tweaks.
 
 # 📑 Table of Contents
-- [✨ Features](https://github.com/FlaxCube/Indra-Vesh#-features)
-- [🚧 Work In Progress](https://github.com/FlaxCube/Indra-Vesh#-work-in-progress)
-- [⚙️ Installation](https://github.com/FlaxCube/Indra-Vesh#-installation)
-- [📖 Usage](https://github.com/FlaxCube/Indra-Vesh#-usage)
-- [🔧 Compatibility](https://github.com/FlaxCube/Indra-Vesh#-compatibility)
-- [💬 Support](https://github.com/FlaxCube/Indra-Vesh#-support)
-- [📜 License](https://github.com/FlaxCube/Indra-Vesh#-license)
-- [💖 Acknowledgements](https://github.com/FlaxCube/Indra-Vesh#-acknowledgements)
+- [✨ Features](#✨-features)
+- [🚧 Work In Progress](#🚧-work-in-progress)
+- [⚙️ Installation](#⚙️-installation)
+- [📖 Usage](#📖-usage)
+- [🔧 Compatibility](#🔧-compatibility)
+- [💬 Support](#:speech_balloon:-support)
+- [📜 License](#📜-license)
+- [💖 Acknowledgements](#💖-acknowledgements)
 
 ## ✨ Features
 - [x]  **System Props Tweaks**: Minimal yet impactful tweaks for enhancing every aspect of an Android phone.
