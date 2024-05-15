@@ -72,4 +72,4 @@ Distributed under the [MIT License](https://choosealicense.com/licenses/mit/).
 ## 💖 Acknowledgements
  - Thanks to [Shrigiri Patil](https://telegram.me/BosadBillaHun) for ideas used in this module.
  - Thanks to [Divesh Kumar](https://telegram.me/DIV3SH_KUMAR) for testing this module.
- - Thanks to [Rohit Sir](https://telegram.me/lazymeao) for helping me in fixing bugs.
+ - Thanks to [Lazymeao](https://telegram.me/lazymeao) for helping me in fixing bugs.
