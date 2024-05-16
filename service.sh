@@ -15,14 +15,10 @@ READ() {
   return $?
 }
 
-# INDRA LOGS
+# Indra's Reboot Logs
 touch /$DB/reboot.log
 INDLOG="/$DB/reboot.log"
 echo "##### INDRA - Reboot Logs #####" > "$INDLOG"
-touch /sdcard/#INDRA/menu.log
-INDMLOG="/sdcard/#INDRA/menu.log"
-echo "##### INDRA - Menu Logs #####" > "$INDMLOG"
-echo "---------- Write 'su -c indra' in Termux to access menu ----------" > "$INDMLOG"
 ind () {
   if [ -n "$1" ]; then
     echo "" >> "$INDLOG"
@@ -106,6 +102,12 @@ write "/sys/module/lowmemorykiller/parameters/minfree" "2048,4096,8192,16384,245
  until [[ -e "/sdcard/" ]]; do
         sleep 1
     done
+
+# Indra's Menu Logs
+touch /sdcard/#INDRA/menu.log
+INDMLOG="/sdcard/#INDRA/menu.log"
+echo "##### INDRA - Menu Logs #####" > "$INDMLOG"
+echo "---------- Write 'su -c indra' in Termux to access menu ----------" >> "$INDMLOG"
 
 # Copy Logs to Sdcard
 cp -af "/data/INDRA/reboot.log" "/sdcard/#INDRA/reboot.log"
