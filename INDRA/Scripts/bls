@@ -1,8 +1,5 @@
 #!/system/bin/sh
 
-# Binary Lever Configuration 
-BLC="/$CONF/blc.txt"
-
 # Download Config if doesn't Available.
 if [ ! -f $BLC ]; then
 Download https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/Configs/blc.txt?inline=false $BLC
@@ -12,8 +9,8 @@ fi
 Menu() {
     echo -e '\n'
     printf "\033c" 
-    indc "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Binary Lever ✧✦✧✦✧✦✧✦✧✦ ${N}"
-    indc "${W} ✶ Description - Binary Lever means, options with only 0 or 1 means which can turn on or off just like a switch. ✶ ${N}"
+    indc "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Toggle Control ✧✦✧✦✧✦✧✦✧✦ ${N}"
+    indc "${W} ✶ Description - Toggle Control means, options with only 0 or 1 means which can turn on or off just like a switch. ✶ ${N}"
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     
 cnt=1
