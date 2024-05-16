@@ -20,12 +20,12 @@
 - [x]  **Network Enhancements**: Network tweaks applied by default for an optimized online experience.
 - [x]  **Indra's Terminal (Termux) Menu**: Access a dedicated menu within Termux to extend the capabilities of the module.
 - [x]  **Versatile Menus**: Indra's Menu boasts five distinct menus, each tailored for specific sets of tasks:
-  - [x]  **Binary Lever**: Toggle features or tweaks, on or off, such as enabling or disabling Double Tap to Wake.
+  - [x]  **Toggle Control**: Toggle features or tweaks, on or off, such as enabling or disabling Double Tap to Wake.
 
 ## 🚧 Work in Progress
 The following features are currently under development and are not available in the module yet:
 
-- [ ]  **Custom Forge**: Input-driven functionality, such as debloating apps by specifying package names.
+- [ ]  **Tune Dynamics**: Input-driven functionality, such as debloating apps by specifying package names.
 - [ ]  **Magic Kit**: Tools for creating module packages (single zip) and editing module metadata like name and author.
 - [ ]  **Configuration**: Module-specific settings to utilize custom scripts and other user-defined configurations.
 - [ ]  **Updater**: A system to update module submenus (e.g., Binary Lever, Custom Forge) and upgrade all modules with a single click.
