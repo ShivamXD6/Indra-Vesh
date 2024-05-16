@@ -231,11 +231,15 @@ sleep 1
 done
 }
 
+# Function to turn on or off Binary Lever Options
 Turn() {
 local bool=$1
 local value=$2
 local file=$3
+local name=$4
 sed -i "/$value/s/.*/$value=$bool/" $file
+ind "Turning $bool $name"
+source /$BLSRT/$name.sh
 } 
 
 
