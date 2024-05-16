@@ -1,7 +1,7 @@
 # Latest Security Patch
-ro.build.version.security_patch=2024-05-05
-ro.vendor.build.security_patch=2024-05-05
-ro.build.version.real_security_patch=2024-05-05
+ro.build.version.security_patch
+ro.vendor.build.security_patch
+ro.build.version.real_security_patch
 
 # Enable usage of dex2oat64 to better dexopt time
 dalvik.vm.dex2oat64.enabled=1
