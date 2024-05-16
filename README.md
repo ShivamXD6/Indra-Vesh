@@ -1,4 +1,4 @@
-![Indra Vesh Banner](https://imgur.com/9Rf2UHY.png)
+![Indra Vesh Banner](https://imgur.com/B6CTkgK.png)
 
 ![Static Badge](https://img.shields.io/badge/Download-Vajra-green?style=for-the-badge&label=Download&labelColor=light-grey&color=green&link=https%3A%2F%2Fgithub.com%2FFlaxCube%2FIndra-Vesh%2Freleases%2Ftag%2FVAJRA) &nbsp;
 ![Static Badge](https://img.shields.io/badge/Support-lightblue?style=for-the-badge&logo=telegram&link=https%3A%2F%2Ft.me%2Frmx_3_pro)
