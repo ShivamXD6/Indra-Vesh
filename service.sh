@@ -89,7 +89,7 @@ sed -i "/ro.build.version.real_security_patch/s/.*/ro.build.version.real_securit
 ind "Applying Network Tweaks"
 write "/proc/sys/net/ipv4/tcp_ecn" "1"
 write "/proc/sys/net/ipv4/tcp_fastopen" "3"
-write "/proc/sys/net/ipv4/tcp_syncookies" "1"
+write "/proc/sys/net/ipv4/tcp_syncookies" "0"
 
 # Ram Management Tweaks
 ind "Applying Ram Management Tweaks"
