@@ -1,4 +1,4 @@
-# Vajra Changelogs:
+# Vajra Changelogs - 14 May 2024:
 1. Initial Release.
 2. Remade module based on Joker Simple Base.
 3. Added minimal yet useful property (prop) tweaks applicable system-wide.
