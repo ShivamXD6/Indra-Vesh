@@ -44,10 +44,8 @@ while true; do
     
     if [ "$status" = "OFF" ] && [ ! "$local_size" -eq "0" ]; then
    Turn ON BLS$option $BLC $name
-      source /$BLSRT/$name.sh
       elif [ "$status" = "ON" ] && [ ! "$local_size" -eq "0" ]; then
-   Turn OFF BLS$option $BLC $name
-      source /$BLSRT/$name.sh      
+   Turn OFF BLS$option $BLC $name    
 else
     indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" 
     sleep 5 & e_spinner
