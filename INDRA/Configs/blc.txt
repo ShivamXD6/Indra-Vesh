@@ -1,5 +1,11 @@
 BLV=1
 
-BLN1=DT2W
+BLID1=DT2W
+BLN1=Double Tap To Wake
 BLS1=OFF
-BLL1=https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/BLScripts/DT2W.sh?ref_type=heads&inline=false
+BLL1=https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/BLScripts/DT2W.sh?inline=false
+
+BLID2=NET
+BLN2=Network Enhancement
+BLS2=ON
+BLL2=https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/BLScripts/NET.sh?inline=false

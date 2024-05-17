@@ -231,17 +231,17 @@ sleep 1
 done
 }
 
-# Function to turn on or off Binary Lever Options
+# Function to turn on or off Toggle Control Options
 Turn() {
 local bool=$1
 local value=$2
 local file=$3
-local name=$4
+local id=$4
+local name=$5
 sed -i "/$value/s/.*/$value=$bool/" $file
 ind "Turning $bool $name"
-source /$BLSRT/$name.sh
-} 
-
+source $BLSRT/$id.sh
+}
 
 #https://github.com/fearside/SimpleProgressSpinner
 # Spinner <message>

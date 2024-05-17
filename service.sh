@@ -15,6 +15,12 @@ READ() {
   return $?
 }
 
+# Read Files (With Space)
+READS() {
+  value=$(grep -m 1 "^$1=" "$2" | sed 's/^.*=//')
+  echo "${value//[[:space:]]/ }"
+}
+
 # Indra's Reboot Logs
 touch /$DB/reboot.log
 INDLOG="/$DB/reboot.log"
@@ -27,7 +33,7 @@ ind () {
   exec 2> >(tee -ai $INDLOG >/dev/null)
 }
 
-# Write Function
+# Write
 write() {
  [[ ! -f "$1" ]] && return 1
  chmod +w "$1" 2> /dev/null
@@ -37,35 +43,29 @@ write() {
  fi
 }
 
-# Function to Execute Scripts
+# Execute Scripts
 EXSC() {
     local script="$1"
-    id="Successfully Executed Your Custom Script $2 File"
-    source "$script"
-    echo ""
-    echo "$id"
-    echo ""
+    local comment="$2"
+    chmod +x "$script"
+    . "$script"
+    ind "$comment"
 }
 
-# Copy Custom Scripts to Database Dir   
-for script in "$SD"/*.sh; do
-    if [ -f "$script" ]; then
-        filename=$(basename "$script")
-        cp "$script" "$SRT/$filename"
-    fi
-done
-
-# Start Executing Custom and Indra Scripts 
+# Start Executing Indra's Scripts 
+cnt=1
 for file in "$SRT"/*.sh; do
-    if [ - "$file" ]; then
+    if [ -f "$file" ]; then
     filename=$(basename "$file")
-    chmod +x "$file"
-    EXSC "$SRT/$filename" "$SRT/$filename"
+    name=$(READS "BLN$cnt" $BLC)
+    status=$(READ "BLS$cnt" $BLC)
+    EXSC "$file" "Turning $status $name"
+    cnt=$((cnt + 1))
     fi
 done
 
 # Auto Security Patch Level
-ind "Updating Security Patch Level"
+ind ""
 YEAR=$(date +%Y)
 MONTH=$(date +%m)
 MONTH=$((10#$MONTH))
@@ -79,17 +79,12 @@ YEAR=$(printf "%04d" $YEAR)
 
 # Latest Security Patch
 SP="${YEAR}-${MONTH}-05"
+ind "Updating Security Patch Level to $SP"
 
 # Updates Security Patch
 sed -i "/ro.build.version.security_patch/s/.*/ro.build.version.security_patch=$SP/" "$MODPATH/system.prop"
 sed -i "/ro.vendor.build.security_patch/s/.*/ro.vendor.build.security_patch=$SP/" "$MODPATH/system.prop"
 sed -i "/ro.build.version.real_security_patch/s/.*/ro.build.version.real_security_patch=$SP/" "$MODPATH/system.prop"
-
-# Network Enhancement
-ind "Applying Network Tweaks"
-write "/proc/sys/net/ipv4/tcp_ecn" "1"
-write "/proc/sys/net/ipv4/tcp_fastopen" "3"
-write "/proc/sys/net/ipv4/tcp_syncookies" "0"
 
 # Ram Management Tweaks
 ind "Applying Ram Management Tweaks"
@@ -102,6 +97,22 @@ write "/sys/module/lowmemorykiller/parameters/minfree" "2048,4096,8192,16384,245
  until [[ -e "/sdcard/" ]]; do
         sleep 1
     done
+
+# Copy Custom Scripts to Database Dir   
+for script in "$SD"/*.sh; do
+    if [ -f "$script" ]; then
+        filename=$(basename "$script")
+        cp "$script" "$DB/Custom-Scripts/$filename"
+    fi
+done
+
+# Start Executing Custom Scripts 
+for file in "$DB"/*.sh; do
+    if [ -f "$file" ]; then
+    filename=$(basename "$file")
+    EXSC "$file" "Successfully Executed your Custom $filename Script"
+    fi
+done
 
 # Indra's Menu Logs
 touch /sdcard/#INDRA/menu.log

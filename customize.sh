@@ -11,8 +11,11 @@ if ! $BOOTMODE; then
   exit 0
 fi
 
-# Defines
+# Defines & Functions
 mkdir -p /sdcard/#INDRA
+if [ -f "/data/INDRA/Configs/blc.txt" ]; then
+  mv "/data/INDRA/Configs/blc.txt" "/data/INDRA/Configs/old-blc.txt" 
+fi 
 cp -af $MODPATH/INDRA /data
 DB=/data/INDRA
 
@@ -36,7 +39,7 @@ READ() {
   value=$(sed -e '/^[[:blank:]]*#/d;s/[\t\n\r ]//g;/^$/d' "$2" | grep -m 1 "^$1=" | cut -d'=' -f 2)
   echo "$value"
   return $?
-}
+} 
 
 # Write Function
 write() {
@@ -52,11 +55,23 @@ write() {
 ui_print ""
 ind "          ⚡ INDRA-VESH ⚡"
 ind "          🧑‍💻 By @ShastikXD 💠"
-ind "          ℹ️ Version :- Vajra ⚡"
+ind "          ℹ️ Version :- Amrit💧"
 ind "          🔐 Auto Security Patch"
-ind "          🌐 Network"
 ind "          💿 Ram Management"
-ind "⌨️ Type 'su -c indra' to access Menu and more features"
+ind "⌨️ Type 'su -c indra' to access Menu and features of Module"
+
+# Preserve User Settings of Toggle Control
+if [ -f "/data/INDRA/Configs/old-blc.txt" ]; then
+cnt=1
+while true; do
+  status=$(READ "BLS$cnt" "/data/INDRA/Configs/old-blc.txt")
+  if [ -z "$status" ]; then
+  break
+  fi
+  sed -i "/BLS$cnt/s/.*/BLS$cnt=$status/" "/data/INDRA/Configs/blc.txt"
+  cnt=$((cnt + 1))
+done 
+fi
 
 # Permissions and Cleanup
 chmod 755 "$MODPATH/service.sh"

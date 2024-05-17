@@ -35,27 +35,27 @@ Menu() {
 
 Option1 () {
     printf "\033c"
-    source /$DB/Scripts/bls
+    source $DB/Scripts/bls
 }
 
 Option2 () {
     printf "\033c"
-    source /$DB/Scripts/cfs
+    source $DB/Scripts/cfs
 }
 
 Option3 () {
     printf "\033c"
-    source /$DB/Scripts/mks
+    source $DB/Scripts/mks
 }
 
 Option4 () {
     printf "\033c"
-    source /$DB/Scripts/cfgs
+    source $DB/Scripts/cfgs
 }
 
 Option5 () {
     printf "\033c"
-    source /$DB/Scripts/upd
+    source $DB/Scripts/upd
 }
 
 Reboot() {
