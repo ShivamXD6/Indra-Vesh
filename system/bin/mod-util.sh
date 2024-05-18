@@ -14,7 +14,7 @@ READS() {
 }
 
 # Indra's Logs  
-INDLOG="/sdcard/#INDRA/menu.log"
+INDLOG="/sdcard/#INDRA/Logs/menu.log"
 ind () {
   if [ -n "$1" ]; then
     echo "" >> "$INDLOG"

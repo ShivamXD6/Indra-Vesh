@@ -1,4 +1,16 @@
-# Vajra Changelogs - 14 May 2024:
+# Amrit - Samudra Manthan Changelogs - 18 May 2024:
+1. Fixed Splash Loop.
+2. Fixed Menu Logs not Appearing after Reboot.
+3. Updated Props Tweaks i.e. Added and Removed Some Tweaks.
+4. Changed Sub - Menu Names. i.e
+ • Binary Lever -> Toggle Control
+ • Custom Forge -> Tune Dynamics
+5. Added Support to Use Custom Scripts (On Every Reboot)
+ • Paste your custom Script (Must be with extension ```.sh```) in ```/sdcard/#INDRA```
+6. Updated Base for Future Updates.
+7. Added Option to Turn Off Network Tweaks in Toggle Control Menu.
+
+# Vajra - Indra's Weapon Changelogs - 14 May 2024:
 1. Initial Release.
 2. Remade module based on Joker Simple Base.
 3. Added minimal yet useful property (prop) tweaks applicable system-wide.

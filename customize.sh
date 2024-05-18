@@ -12,7 +12,7 @@ if ! $BOOTMODE; then
 fi
 
 # Defines & Functions
-mkdir -p /sdcard/#INDRA
+mkdir -p /sdcard/#INDRA/Logs
 if [ -f "/data/INDRA/Configs/blc.txt" ]; then
   mv "/data/INDRA/Configs/blc.txt" "/data/INDRA/Configs/old-blc.txt" 
 fi 
@@ -20,9 +20,9 @@ cp -af $MODPATH/INDRA /data
 DB=/data/INDRA
 
 # INDRA LOGS
-ind " 📝 For logs - /sdcard/#INDRA/"
-touch /sdcard/#INDRA/install.log
-INDLOG="/sdcard/#INDRA/install.log"
+ui_print " 📝 For logs - /sdcard/#INDRA/Logs"
+touch /sdcard/#INDRA/Logs/install.log
+INDLOG="/sdcard/#INDRA/Logs/install.log"
 echo "##### INDRA - Installation Logs #####" > "$INDLOG"
 ind () {
   if [ -n "$1" ]; then
@@ -58,6 +58,7 @@ ind "          🧑‍💻 By @ShastikXD 💠"
 ind "          ℹ️ Version :- Amrit💧"
 ind "          🔐 Auto Security Patch"
 ind "          💿 Ram Management"
+ind "          🌟 Many Things in Indra's Menu"
 ind "⌨️ Type 'su -c indra' to access Menu and features of Module"
 
 # Preserve User Settings of Toggle Control

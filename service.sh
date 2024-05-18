@@ -107,7 +107,7 @@ for script in "$SD"/*.sh; do
 done
 
 # Start Executing Custom Scripts 
-for file in "$DB"/*.sh; do
+for file in "$DB/Custom-Scripts"/*.sh; do
     if [ -f "$file" ]; then
     filename=$(basename "$file")
     EXSC "$file" "Successfully Executed your Custom $filename Script"
@@ -115,11 +115,11 @@ for file in "$DB"/*.sh; do
 done
 
 # Indra's Menu Logs
-touch /sdcard/#INDRA/menu.log
-INDMLOG="/sdcard/#INDRA/menu.log"
+touch /sdcard/#INDRA/Logs/menu.log
+INDMLOG="/sdcard/#INDRA/Logs/menu.log"
 echo "##### INDRA - Menu Logs #####" > "$INDMLOG"
 echo "---------- Write 'su -c indra' in Termux to access menu ----------" >> "$INDMLOG"
 
 # Copy Logs to Sdcard
-cp -af "/data/INDRA/reboot.log" "/sdcard/#INDRA/reboot.log"
+cp -af "/data/INDRA/reboot.log" "/sdcard/#INDRA/Logs/reboot.log"
 }&

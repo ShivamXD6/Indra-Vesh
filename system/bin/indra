@@ -8,10 +8,10 @@ Menu() {
     echo -e '\n'
     printf "\033c"
     
-    indc "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Command Center ✧✦✧✦✧✦✧✦✧✦ ${N}"
+    ind "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Command Center ✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ✶ Welcome to Indra-Vesh - Menu ${N}"
     indc "${W} ✶ Created & Written By @ShastikXD ${N}"
-    indc "${W} ✶ Version = VAJRA ${N}"
+    indc "${W} ✶ Version = AMRIT ${N}"
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ❐ [1] Toggle Control ${N}"
     indc "${W} ❐ [2] Tune Dynamics ${N}"
