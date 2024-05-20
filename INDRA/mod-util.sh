@@ -50,6 +50,7 @@ CFSRT=$DB/CFScripts
 SRT=$DB/Scripts
 CONF=$DB/Configs
 BLC=$CONF/blc.txt
+CFC=$CONF/cfc.txt
 
 # Check A/B slot
 if [[ -d /system_root ]]; then

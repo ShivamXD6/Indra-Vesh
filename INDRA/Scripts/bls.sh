@@ -5,7 +5,7 @@ Menu() {
     echo -e '\n'
     printf "\033c" 
     indc "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Toggle Control ✧✦✧✦✧✦✧✦✧✦ ${N}"
-    indc "${W} ✶ Description - Toggle Control means, options with only 0 or 1 means which can turn on or off just like a switch. ✶ ${N}"
+    indc "${W} ✶ Toggle Control means, options with only 0 or 1 means which can turn on or off just like a switch. ✶ ${N}"
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     
 cnt=1
@@ -14,13 +14,17 @@ while true; do
   status=$(READ "BLS$cnt" $BLC)
   
   if [ -z "$name" ]; then
-  indc "${R} ✖ [0] Return to Main Menu ${N}"
+    indc "${R} ✖ [0] Return to Indra's Menu ${N}"
+    indc "${R} ✖ [+] Exit Directly ${N}"
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${C} ✷ Enter Number to Turn On or Off :  ${N}"   
     read option
 
     if [ "$option" == "0" ]; then
     Return
+
+    elif [ "$option" == "+" ]; then
+    GoOut
 
     elif [ "$option" -lt "$cnt" ] && echo "$option" | grep -qE '^[0-9]+$'; then
     id=$(READ "BLID$option" $BLC)
@@ -39,9 +43,7 @@ while true; do
       elif [ "$status" = "ON" ] && [ ! "$local_size" -eq "0" ]; then
    Turn OFF BLS$option $BLC $id "$name"
 else
-    indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}"
-    sleep 5 & e_spinner
-    Menu
+    indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" & sleep 5 & e_spinner & Menu
       fi
 fi
    Menu
