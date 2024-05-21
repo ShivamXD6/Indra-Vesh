@@ -4,14 +4,14 @@
 Menu() {
     echo -e '\n'
     printf "\033c"
-    
-    ind "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Command Center ✧✦✧✦✧✦✧✦✧✦ ${N}"
+    ind ""
+    indc "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Command Center ✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ✶ Welcome to Indra-Vesh - Menu ${N}"
     indc "${W} ✶ Created & Written By @ShastikXD ${N}"
     indc "${W} ✶ Version = $VER ${N}"
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ❐ [1] Toggle Control ${N}"
-    indc "${W} ❐ [2] Tune Dynamics ${N}"
+    indc "${W} ❐ [2] Tune Dynamics ${V}(!NEW)${N}"
     indc "${W} ❐ [3] Magic Kit ${N}"
     indc "${W} ❐ [4] Configuration ${N}"
     indc "${W} ❐ [5] Updater ${N}"
@@ -63,7 +63,7 @@ Reboot() {
 
 GoOut() {
     printf "\033c"
-    ind "${G} ✓ All Done, See You next Time.${N}"
+    ind "${G} 👋 All Done, See You next Time.${N}"
     exit
 }
 

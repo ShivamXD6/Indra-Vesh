@@ -38,9 +38,12 @@ Menu() {
     fi
     
     if [ ! "$local_size" -eq "0" ]; then
+   ind "Opening $name"
    . $CFSRT/$id.sh
 else
-    indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" & sleep 5 & e_spinner & Menu
+    indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" 
+sleep 5 & e_spinner 
+Menu
       fi
 fi
    Menu

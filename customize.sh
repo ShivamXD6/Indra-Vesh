@@ -55,7 +55,7 @@ write() {
 ui_print ""
 ind "          ⚡ INDRA-VESH ⚡"
 ind "          🧑‍💻 By @ShastikXD 💠"
-ind "          ℹ️ Version :- Amrit💧"
+ind "          ℹ️ Version :- AIRAVAT 🐘"
 ind "          🔐 Auto Security Patch"
 ind "          💿 Ram Management"
 ind "          🌟 Many Things in Indra's Menu"
@@ -73,6 +73,27 @@ while true; do
   cnt=$((cnt + 1))
 done 
 fi
+
+# Auto Security Patch Level
+ind ""
+YEAR=$(date +%Y)
+MONTH=$(date +%m)
+MONTH=$((10#$MONTH))
+NEXT_MONTH=$((MONTH))
+if [ $NEXT_MONTH -gt 12 ]; then
+    NEXT_MONTH=1
+    YEAR=$((YEAR + 1))
+fi
+MONTH=$(printf "%02d" $NEXT_MONTH)
+YEAR=$(printf "%04d" $YEAR)
+
+# Latest Security Patch
+SP="${YEAR}-${MONTH}-05"
+
+# Updates Security Patch
+sed -i "/ro.build.version.security_patch/s/.*/ro.build.version.security_patch=$SP/" "$MODPATH/system.prop"
+sed -i "/ro.vendor.build.security_patch/s/.*/ro.vendor.build.security_patch=$SP/" "$MODPATH/system.prop"
+sed -i "/ro.build.version.real_security_patch/s/.*/ro.build.version.real_security_patch=$SP/" "$MODPATH/system.prop"
 
 # Permissions and Cleanup
 chmod 755 "$MODPATH/service.sh"

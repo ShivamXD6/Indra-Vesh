@@ -19,8 +19,6 @@ ind () {
   if [ -n "$1" ]; then
     echo "" >> "$INDLOG"
     echo "# $1 - [$(date)]" >> "$INDLOG"
-    echo "$1"
-    echo ""
   fi
 }
 

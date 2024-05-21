@@ -1,4 +1,14 @@
-# Amrit - Samudra Manthan Changelogs - 18 May 2024:
+# Airavat - Indra's Elephant
+## Changelogs - 21 May 2024:
+1. Fixed Custom Script executing even after deleting it from /sdcard/#INDRA
+2. Added Tune Dynamics Menu, Currently Includes :-
+ • Display Color Control Menu (With 4 Presets and Custom Settings)
+3. From now, Security Patch will be Updated on First Reboot.
+4. Added Display Color Control option in Toggle Controls
+5. Miscellaneous Changes To Base
+
+# Amrit - Samudra Manthan 
+## Changelogs - 18 May 2024:
 1. Fixed Splash Loop.
 2. Fixed Menu Logs not Appearing after Reboot.
 3. Updated Props Tweaks i.e. Added and Removed Some Tweaks.
@@ -10,7 +20,8 @@
 6. Updated Base for Future Updates.
 7. Added Option to Turn Off Network Tweaks in Toggle Control Menu.
 
-# Vajra - Indra's Weapon Changelogs - 14 May 2024:
+# Vajra - Indra's Weapon 
+## Changelogs - 14 May 2024:
 1. Initial Release.
 2. Remade module based on Joker Simple Base.
 3. Added minimal yet useful property (prop) tweaks applicable system-wide.

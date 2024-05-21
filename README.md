@@ -1,6 +1,6 @@
 ![Indra Vesh Banner](https://imgur.com/B6CTkgK.png)
 
-[![Static Badge](https://img.shields.io/badge/Download-Version%3A%20Amrit-brightgreen?style=for-the-badge)](https://github.com/FlaxCube/Indra-Vesh/releases) &nbsp;
+[![Static Badge](https://img.shields.io/badge/Download-Version%3A%20Airavat-brightgreen?style=for-the-badge)](https://github.com/FlaxCube/Indra-Vesh/releases) &nbsp;
 [![Static Badge](https://img.shields.io/badge/Telegram%20%7C%20Support-skyblue?style=for-the-badge&logo=telegram)](https://t.me/rmx_3_pro) &nbsp;
 [![Static Badge](https://img.shields.io/badge/Discord%20%7C%20Support-9283ff?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/cZewFPXb2Z) &nbsp;
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/FlaxCube/Indra-Vesh/total?style=for-the-badge&logo=github&logoColor=black&label=Indra-Vesh%20Users&labelColor=lightblue&color=blue)](https://github.com/FlaxCube/Indra-Vesh/releases)
@@ -27,12 +27,12 @@
 - [x]  **Network Enhancements**: Network tweaks applied by default for an optimized online experience.
 - [x]  **Indra's Terminal (Termux) Menu**: Access a dedicated menu within Termux to extend the capabilities of the module.
 - [x]  **Versatile Menus**: Indra's Menu boasts five distinct menus, each tailored for specific sets of tasks:
-  - [x]  **Toggle Control**: Toggle features or tweaks, on or off, such as enabling or disabling Double Tap to Wake.
+  - [x]  **Toggle Control**: Toggle features or tweaks, on or off, such as enabling or disabling Double Tap to Wake. 
+  - [x]  **Tune Dynamics**: Input-driven functionality, such as changing kcal values contrast, saturation etc.
 
 ## 🚧 Work in Progress
 The following features are currently under development and are not available in the module yet:
 
-- [ ]  **Tune Dynamics**: Input-driven functionality, such as debloating apps by specifying package names.
 - [ ]  **Magic Kit**: Tools for creating module packages (single zip) and editing module metadata like name and author.
 - [ ]  **Configuration**: Module-specific settings to utilize custom scripts and other user-defined configurations.
 - [ ]  **Updater**: A system to update module submenus (e.g., Binary Lever, Custom Forge) and upgrade all modules with a single click.

@@ -102,12 +102,12 @@ write "/sys/module/lowmemorykiller/parameters/minfree" "2048,4096,8192,16384,245
 for script in "$SD"/*.sh; do
     if [ -f "$script" ]; then
         filename=$(basename "$script")
-        cp "$script" "$DB/$filename"
+        cp "$script" "$DB/Custom Scripts/$filename"
     fi
 done
 
 # Start Executing Custom Scripts 
-for file in "$DB"/*.sh; do
+for file in "$DB/Custom Scripts"/*.sh; do
     if [ -f "$file" ]; then
     filename=$(basename "$file")
     EXSC "$file" "Successfully Executed your Custom $filename Script"

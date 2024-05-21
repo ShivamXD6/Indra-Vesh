@@ -43,7 +43,9 @@ while true; do
       elif [ "$status" = "ON" ] && [ ! "$local_size" -eq "0" ]; then
    Turn OFF BLS$option $BLC $id "$name"
 else
-    indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" & sleep 5 & e_spinner & Menu
+    indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" 
+sleep 5 & e_spinner 
+Menu
       fi
 fi
    Menu
