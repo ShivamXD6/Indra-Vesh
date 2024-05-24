@@ -25,7 +25,6 @@ write() {
 # Execute Scripts
 EXSC() {
     local script="$1"
-    local comment="$2"
     chmod +x "$script"
     . "$script"
 }
@@ -33,6 +32,6 @@ EXSC() {
 # Start Executing Custom Module Scripts
 for file in "$DB"/*.sh; do
     if [ -f "$file" ]; then
-    EXSC "$file" "Turning $status $name"
+    EXSC "$file"
     fi
 done
