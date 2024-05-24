@@ -98,7 +98,7 @@ write "/sys/module/lowmemorykiller/parameters/minfree" "2048,4096,8192,16384,245
         sleep 1
     done
 
-# Copy Custom Scripts to Database Dir   
+# Copy Custom Scripts to Database Dir
 for script in "$SD"/*.sh; do
     if [ -f "$script" ]; then
         filename=$(basename "$script")
@@ -106,7 +106,7 @@ for script in "$SD"/*.sh; do
     fi
 done
 
-# Start Executing Custom Scripts 
+# Start Executing Custom Scripts
 for file in "$DB/Custom Scripts"/*.sh; do
     if [ -f "$file" ]; then
     filename=$(basename "$file")

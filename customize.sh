@@ -51,11 +51,20 @@ write() {
  fi
 }
 
+# Grep prop
+grep_prop() {
+  local REGEX="s/^$1=//p"
+  shift
+  local FILES=$@
+  [[ -z "$FILES" ]] && FILES='/system/build.prop'
+  sed -n "$REGEX" $FILES 2>/dev/null | head -n 1
+}
+
 # Installation Begins
 ui_print ""
 ind "          ⚡ INDRA-VESH ⚡"
 ind "          🧑‍💻 By @ShastikXD 💠"
-ind "          ℹ️ Version :- AIRAVAT 🐘"
+ind "          ℹ️ Version :- $(grep_prop version "$MODPATH"/module.prop) ☁️ "
 ind "          🔐 Auto Security Patch"
 ind "          💿 Ram Management"
 ind "          🌟 Many Things in Indra's Menu"
