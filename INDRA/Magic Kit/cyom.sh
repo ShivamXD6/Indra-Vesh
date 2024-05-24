@@ -74,7 +74,7 @@ clear
 fi
 
 # Check if any saved state found
-if [ -f "$MOD/MetadataDone" ] || [ -f "$MOD/CoreDone" ]; then
+if [ -f "$MOD/MetadataDone" ] || [ -f "$MOD/CoreDone" ] || [ -f "$MOD/FeaDone" ] || [ -f "$MOD/Done" ]; then
 indc "${G} ✪ Saved State Found !! ${N}"
 indc "${G} ✪ Do you want to continue from Saved State? ${N}"
 indc "${W} ✪ [1] Yes ${N}"
