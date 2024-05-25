@@ -8,9 +8,14 @@ write "/proc/sys/net/ipv4/tcp_ecn" "0"
 write "/proc/sys/net/ipv4/tcp_fastopen" "0"
 write "/proc/sys/net/ipv4/tcp_syncookies" "0"
 fi
-if [ -e "/sdcard/" ]; then
+
+{
+ until [[ -e "/sdcard/" ]]; do
+        sleep 1
+    done
+# Turn On & Off Airplane Mode 
 settings put global airplane_mode_on 1 > /dev/null;
 am broadcast -a android.intent.action.AIRPLANE_MODE --ez state true > /dev/null;
 settings put global airplane_mode_on 0 > /dev/null;
 am broadcast -a android.intent.action.AIRPLANE_MODE --ez state false > /dev/null;
-fi
+}&
