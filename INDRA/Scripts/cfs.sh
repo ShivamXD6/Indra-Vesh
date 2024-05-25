@@ -42,7 +42,7 @@ Menu() {
    . $CFSRT/$id.sh
 else
     indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" 
-sleep 5
+sleep 3
 Menu
 break
       fi

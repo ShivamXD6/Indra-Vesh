@@ -49,6 +49,8 @@ SRT=$DB/Scripts
 CONF=$DB/Configs
 BLC=$CONF/blc.txt
 CFC=$CONF/cfc.txt
+CYOM="$DB/Magic Kit/CYOM"
+MOD="$CYOM/Module"
 
 # Check which Rooting Tool were used to Root Mobile
 if [ -d "/data/adb/ap" ]; then
@@ -74,8 +76,6 @@ else
   CACHELOC=/cache
 fi
 [[ -z "$isABDevice" ]] && { echo " ❌ Something went wrong"; exit 1; }
-
-#=========================== Default Functions and Variables
 
 # Set perm
 set_perm() {

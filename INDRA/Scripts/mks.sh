@@ -1,44 +1,15 @@
 #!/system/bin/sh
-
-# In Progress
-word1="> > > > > C O M I N G - -"
-word2="- - S O O N > > > > > >"
-indc="$word1 $word2"
-clear
-i=0
-while [ $i -le ${#indc} ]; do
-  echo -ne "${indc:0:i}"
-  sleep 0.1
-  clear
-  ((i++))
-done
-
-i=0
-while [ $i -lt 5 ] ; do
-echo -ne "${G}${word1} ${C}${word2}${N}"
-sleep 0.5
-clear
-echo -ne "${C}${word1} ${G}${word2}${N}"
-sleep 0.5
-clear
-((i++))
-done
-indra
-exit
  
 # Menu
 Menu() {
     echo -e '\n'
     printf "\033c"
-    
     indc "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Magic Kit ✧✦✧✦✧✦✧✦✧✦ ${N}"
-    indc "${W} ✶ Welcome to Indra-Vesh - Updater ${N}"
-    indc "${W} ✶ Created & Written By @ShastikXD ${N}"
-    indc "${W} ✶ Version = VAJRA ${N}"
-    indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
-    indc "${W} ❐ [1] Update Binary Lever ${N}"
-    indc "${W} ❐ [2] Update Custom Forge ${N}"
-    indc "${W} ❐ [3] Update MagicKit ${N}"
+    indc "${W} ✶ A Tool to Create your custom module, to Merge modules into a single zip or to Edit Modules.✶ ${N}"
+    indc "${Y}  ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
+    indc "${W} ❐ [1] Create Your Own Module ${N}"
+    indc "${W} ❐ [2] Merge Modules ${N}"
+    indc "${W} ❐ [3] Edit Modules ${N}"
     indc "${R} ✖ [0] Exit ${N}"
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${C} ✷ Enter Number Respective to its Menu:  ${N}"
@@ -54,7 +25,7 @@ Menu() {
 
 Option1 () {
     printf "\033c"
-    . /$DB/Scripts/bls
+    . "/$DB/Magic Kit/cyom.sh"
 }
 
 Option2 () {
@@ -86,4 +57,4 @@ GoOut() {
 }
 
 printf "\033c"
-Menu
+Menu 
