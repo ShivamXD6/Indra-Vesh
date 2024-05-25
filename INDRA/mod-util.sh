@@ -50,6 +50,17 @@ CONF=$DB/Configs
 BLC=$CONF/blc.txt
 CFC=$CONF/cfc.txt
 
+# Check which Rooting Tool were used to Root Mobile
+if [ -d "/data/adb/ap" ]; then
+ROOT="A Patch"
+elif [ -d "/data/adb/ksu" ]; then
+ROOT="KSU"
+elif [ -d "/data/adb/magisk" ]; then
+ROOT="Magisk"
+else
+ROOT="INVALID"
+fi
+
 # Check A/B slot
 if [[ -d /system_root ]]; then
   isABDevice=true
@@ -140,10 +151,10 @@ if [[ "$ABILONG" = "arm64-v8a" ]]; then ARCH=arm64; ARCH32=arm; IS64BIT=true; fi
 if [[ "$ABILONG" = "x86_64" ]]; then ARCH=x64; ARCH32=x86; IS64BIT=true; fi;
   
 # Defines
-VER=$(grep_prop version "$MODPATH"/module.prop)
-REL=$(grep_prop versionCode "$MODPATH"/module.prop)
-AUTHOR=$(grep_prop author "$MODPATH"/module.prop)
-MODT=$(grep_prop name "$MODPATH"/module.prop)
+VER=$(READ version "$MODPATH"/module.prop)
+REL=$(READ versionCode "$MODPATH"/module.prop)
+AUTHOR=$(READS author "$MODPATH"/module.prop)
+MODT=$(READS name "$MODPATH"/module.prop)
 
 # Colors
 G='\e[01;32m'		# GREEN TEXT

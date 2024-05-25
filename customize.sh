@@ -51,20 +51,23 @@ write() {
  fi
 }
 
-# Grep prop
-grep_prop() {
-  local REGEX="s/^$1=//p"
-  shift
-  local FILES=$@
-  [[ -z "$FILES" ]] && FILES='/system/build.prop'
-  sed -n "$REGEX" $FILES 2>/dev/null | head -n 1
-}
+# Check which Rooting Tool were used to Root Mobile
+if [ -d "/data/adb/ap" ]; then
+ROOT="A Patch"
+elif [ -d "/data/adb/ksu" ]; then
+ROOT="KSU"
+elif [ -d "/data/adb/magisk" ]; then
+ROOT="Magisk"
+else
+ROOT="INVALID"
+fi
 
 # Installation Begins
 ui_print ""
 ind "          ⚡ INDRA-VESH ⚡"
 ind "          🧑‍💻 By @ShastikXD 💠"
-ind "          ℹ️ Version :- $(grep_prop version "$MODPATH"/module.prop) ☁️ "
+ind "          ℹ️ Version :- $(READ version "$MODPATH"/module.prop) ☁️ "
+ind "          🔧 Tool Used For Rooting :- $ROOT"
 ind "          🔐 Auto Security Patch"
 ind "          💿 Ram Management"
 ind "          🌟 Many Things in Indra's Menu"

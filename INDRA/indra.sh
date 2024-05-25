@@ -9,6 +9,7 @@ Menu() {
     indc "${W} ✶ Welcome to Indra-Vesh - Menu ${N}"
     indc "${W} ✶ Created & Written By @ShastikXD ${N}"
     indc "${W} ✶ Version = $VER ${N}"
+    indc "${W} ✶ Tool Used for Rooting = $ROOT ${N}"
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ❐ [1] Toggle Control ${N}"
     indc "${W} ❐ [2] Tune Dynamics ${V}(!NEW)${N}"
