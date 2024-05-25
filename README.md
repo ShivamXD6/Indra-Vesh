@@ -74,7 +74,7 @@ su -c indra
 For support join our [Telegram Channel](https://telegram.me/flaxcubegaming).
 
 ## 📜 License
-Distributed under the [GNU GPL License](https://choosealicense.com/licenses/gpl-3.0/#).
+Distributed under the [GNU GPL 3.0 License](https://choosealicense.com/licenses/gpl-3.0/#).
 
 ## 💖 Acknowledgements
  - Thanks to [Shrigiri Patil](https://telegram.me/BosadBillaHun) for ideas used in this module.
