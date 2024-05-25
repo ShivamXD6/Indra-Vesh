@@ -44,10 +44,12 @@ else
     indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" 
 sleep 5 & e_spinner 
 Menu
+break
       fi
+Menu
+break
+   fi
 fi
-   Menu
-  fi
   
   indc "${W} ❐ [$cnt] $name"
   
