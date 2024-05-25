@@ -4,7 +4,7 @@
 Menu() {
     echo -e '\n'
     printf "\033c"
-    ind ""
+    
     indc "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Command Center ✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ✶ Welcome to Indra-Vesh - Menu ${N}"
     indc "${W} ✶ Created & Written By @ShastikXD ${N}"
