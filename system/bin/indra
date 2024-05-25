@@ -1,8 +1,8 @@
 #!/system/bin/sh
 
 # Load mod-util.sh
-. /data/INDRA/mod-util.sh 2>> /sdcard/#INDRA/Logs/menu.log || exit $?
+. /data/INDRA/mod-util.sh || exit $?
 
 # Load Indra Menu from DB
-. /data/INDRA/indra.sh 2>> /sdcard/#INDRA/Logs/menu.log || exit $?
+. /data/INDRA/indra.sh || exit $?
  
