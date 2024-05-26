@@ -128,7 +128,7 @@ Option3() {
 indc "${G} ✪ Give a name to your Module Pack ${N}"
 read NAME
 sed -i "/name/s/.*/name=$NAME/" "$MODPACK/module.prop"
-setprop MPName $NAME
+setprop MPName "$NAME"
 Menu
 }
 
