@@ -16,7 +16,7 @@ mkdir -p /sdcard/#INDRA/Logs
 if [ -f "/data/INDRA/Configs/blc.txt" ]; then
   mv "/data/INDRA/Configs/blc.txt" "/data/INDRA/Configs/old-blc.txt" 
 fi 
-cp -af $MODPATH/INDRA /data
+cp -af "$MODPATH/INDRA" "/data"
 DB=/data/INDRA
 
 # INDRA LOGS

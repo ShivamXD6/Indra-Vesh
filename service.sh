@@ -110,7 +110,7 @@ done
 for file in "$DB/Custom Scripts"/*.sh; do
     if [ -f "$file" ]; then
     filename=$(basename "$file")
-    EXSC "$file" "Successfully Executed your Custom $filename Script"
+   EXSC "$file" "Successfully Executed your Custom $filename Script"
     rm -rf "$file"
     fi
 done

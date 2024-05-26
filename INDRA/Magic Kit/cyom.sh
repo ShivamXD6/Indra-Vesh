@@ -354,14 +354,10 @@ cd "$MOD"
  sleep 3
  fi
 
-indc "${C} ✪ Creation of "$(READ "name" "$MOD"/module.prop)" Module Completed ✔ ${N}"
-sleep 2
+indc "${G} ✪ Creation of "$(READ "name" "$MOD"/module.prop)" Module Completed ✔ ${N}"
 indc "${C} ✪ You can find you module here "/sdcard/#INDRA/$(READ "name" "$MOD"/module.prop).zip" ${N}"
-sleep 2
-indc "${C} ✪ Don't remove Indravesh :) ${N}"
-sleep 1
 indc "${C} ✪ Returning to Indra Menu ${N}"
-sleep 1
+sleep 5
 rm -rf "$MOD"
 indra
 exit

@@ -11,11 +11,10 @@ if ! $BOOTMODE; then
   exit 0
 fi
 
-# Read Files
-READ() {
-  value=$(sed -e '/^[[:blank:]]*#/d;s/[\t\n\r ]//g;/^$/d' "$2" | grep -m 1 "^$1=" | cut -d'=' -f 2)
-  echo "$value"
-  return $?
+# Read Files (With Space)
+READS() {
+  value=$(grep -m 1 "^$1=" "$2" | sed 's/^.*=//')
+  echo "${value//[[:space:]]/ }"
 }
 
 # Write Function
@@ -28,19 +27,10 @@ write() {
  fi
 }
 
-# Grep prop
-grep_prop() {
-  local REGEX="s/^$1=//p"
-  shift
-  local FILES=$@
-  [[ -z "$FILES" ]] && FILES='/system/build.prop'
-  sed -n "$REGEX" $FILES 2>/dev/null | head -n 1
-}
-
 # Installation Begins
-ui_print "$(grep_prop name "$MODPATH"/module.prop) "
-ui_print "Created By - $(grep_prop author "$MODPATH"/module.prop)"
-ui_print "Version :- $(grep_prop version "$MODPATH"/module.prop) "
+ui_print "$(READS name "$MODPATH"/module.prop) "
+ui_print "Created By - $(READS author "$MODPATH"/module.prop)"
+ui_print "Version :- $(READS version "$MODPATH"/module.prop) "
 
 # Permissions
 chmod 755 "$MODPATH/service.sh"

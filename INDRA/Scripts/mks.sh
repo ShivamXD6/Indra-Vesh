@@ -8,8 +8,8 @@ Menu() {
     indc "${W} ✶ A Tool to Create your custom module, to Merge modules into a single zip or to Edit Modules.✶ ${N}"
     indc "${Y}  ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ❐ [1] Create Your Own Module ${N}"
-    indc "${W} ❐ [2] Merge Modules ${N}"
-    indc "${W} ❐ [3] Edit Modules ${N}"
+    indc "${W} ❐ [2] Create Your Own Modules Package ${N}"
+    indc "${W} ❐ [3] Edit any Module or Module Package ${N}"
     indc "${R} ✖ [0] Exit ${N}"
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${C} ✷ Enter Number Respective to its Menu:  ${N}"
@@ -30,7 +30,7 @@ Option1 () {
 
 Option2 () {
     printf "\033c"
-    . /$DB/Scripts/cfs
+    . "/$DB/Magic Kit/merge.sh"
 }
 
 Option3 () {
@@ -57,4 +57,4 @@ GoOut() {
 }
 
 printf "\033c"
-Menu 
+Menu

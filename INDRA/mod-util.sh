@@ -57,10 +57,8 @@ if [ -d "/data/adb/ap" ]; then
 ROOT="A Patch"
 elif [ -d "/data/adb/ksu" ]; then
 ROOT="KSU"
-elif [ -d "/data/adb/magisk" ]; then
-ROOT="Magisk"
 else
-ROOT="INVALID"
+ROOT="Magisk"
 fi
 
 # Check A/B slot
@@ -76,6 +74,8 @@ else
   CACHELOC=/cache
 fi
 [[ -z "$isABDevice" ]] && { echo " ❌ Something went wrong"; exit 1; }
+
+#=========================== Default Functions and Variables
 
 # Set perm
 set_perm() {

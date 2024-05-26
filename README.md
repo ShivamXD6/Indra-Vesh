@@ -29,11 +29,11 @@
 - [x]  **Versatile Menus**: Indra's Menu boasts five distinct menus, each tailored for specific sets of tasks:
   - [x]  **Toggle Control**: Toggle features or tweaks, on or off, such as enabling or disabling Double Tap to Wake. 
   - [x]  **Tune Dynamics**: Input-driven functionality, such as changing kcal values contrast, saturation etc.
+  - [x]  **Magic Kit**: Tools for creating custom module, modules pack (single zip for all your modules) and editing modules.
 
 ## 🚧 Work in Progress
 The following features are currently under development and are not available in the module yet:
 
-- [ ]  **Magic Kit**: Tools for creating module packages (single zip) and editing module metadata like name and author.
 - [ ]  **Configuration**: Module-specific settings to utilize custom scripts and other user-defined configurations.
 - [ ]  **Updater**: A system to update module submenus (e.g., Binary Lever, Custom Forge) and upgrade all modules with a single click.
 
