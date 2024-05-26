@@ -53,7 +53,7 @@ write() {
 
 # Check which Rooting Tool were used to Root Mobile
 if [ -d "/data/adb/ap" ]; then
-ROOT="A Patch"
+ROOT="APatch"
 elif [ -d "/data/adb/ksu" ]; then
 ROOT="KSU"
 elif [ -d "/data/adb/magisk" ]; then
