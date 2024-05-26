@@ -59,7 +59,7 @@ ROOT="KSU"
 elif [ -d "/data/adb/magisk" ]; then
 ROOT="Magisk"
 else
-ROOT="INVALID"
+ROOT="INVALID, Contact @ShastikXD On Telegram"
 fi
 
 # Installation Begins

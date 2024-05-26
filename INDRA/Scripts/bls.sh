@@ -44,7 +44,7 @@ while true; do
    Turn OFF BLS$option $BLC $id "$name"
 else
     indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" 
-sleep 5 & e_spinner 
+sleep 3
 Menu
 break
       fi

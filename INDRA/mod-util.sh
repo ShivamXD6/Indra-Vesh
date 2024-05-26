@@ -54,11 +54,13 @@ MOD="$CYOM/Module"
 
 # Check which Rooting Tool were used to Root Mobile
 if [ -d "/data/adb/ap" ]; then
-ROOT="A Patch"
+ROOT="APatch"
 elif [ -d "/data/adb/ksu" ]; then
 ROOT="KSU"
-else
+elif [ -d "/data/adb/magisk" ]; then
 ROOT="Magisk"
+else
+ROOT="INVALID, Contact @ShastikXD On Telegram"
 fi
 
 # Check A/B slot
@@ -74,8 +76,6 @@ else
   CACHELOC=/cache
 fi
 [[ -z "$isABDevice" ]] && { echo " ❌ Something went wrong"; exit 1; }
-
-#=========================== Default Functions and Variables
 
 # Set perm
 set_perm() {
