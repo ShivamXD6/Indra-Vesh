@@ -9,16 +9,16 @@ Menu() {
     indc "${Y}  ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ❐ [1] Create Your Own Module ${N}"
     indc "${W} ❐ [2] Create Your Own Modules Package ${N}"
-    indc "${W} ❐ [3] Edit any Module or Module Package ${N}"
-    indc "${R} ✖ [0] Exit ${N}"
+    indc "${R} ✖ [0] Return to Indra's Menu ${N}"
+    indc "${R} ✖ [+] Exit Directly ${N}"
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${C} ✷ Enter Number Respective to its Menu:  ${N}"
     read option
     case $option in
         1) Option1 ;;
         2) Option2 ;;
-        3) Option3 ;;
-        0) GoOut ;;
+        0) Return ;;
+        +) GoOut ;;
         *) Menu ;;
     esac    
     }
@@ -33,27 +33,11 @@ Option2 () {
     . "/$DB/Magic Kit/merge.sh"
 }
 
-Option3 () {
-    printf "\033c"
-    . /$DB/Scripts/mks
-}
-
 Return() {
     printf "\033c"
-    Menu
-    printf "\033c"
-}
-
-Reboot() {
-    printf "\033c"
-    reboot system
-    printf "\033c"
-}
-
-GoOut() {
-    printf "\033c"
-    ind "${G} ✓ All Done, See You next Time.${N}"
+    indra
     exit
+    printf "\033c"
 }
 
 printf "\033c"
