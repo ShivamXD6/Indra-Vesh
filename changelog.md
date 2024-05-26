@@ -1,3 +1,12 @@
+# Devloka - Indra's God's Domain
+## Changelogs - 26 May 2024:
+1. Added Magic Kit Menu in Indra-Vesh Menu
+2. Added Detection of Root Tools (Magisk, KSU or Apatch)
+3. Fixed Overlapping of Processes caused by Menu Loops.
+4. Added Option to Create your own Module in Magic Kit 
+5. Added Option to create Modules Pack (Single zip for all your Modules)
+6. Misc Changes in Overall Module.
+
 # Airavat - Indra's Elephant
 ## Changelogs - 21 May 2024:
 1. Fixed Custom Script executing even after deleting it from /sdcard/#INDRA

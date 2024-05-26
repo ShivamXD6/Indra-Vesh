@@ -1,6 +1,6 @@
 ![Indra Vesh Banner](https://imgur.com/B6CTkgK.png)
 
-[![Static Badge](https://img.shields.io/badge/Download-Version%3A%20Airavat-brightgreen?style=for-the-badge)](https://github.com/FlaxCube/Indra-Vesh/releases) &nbsp;
+[![Static Badge](https://img.shields.io/badge/Download-Version%3A%20Devloka-brightgreen?style=for-the-badge)](https://github.com/FlaxCube/Indra-Vesh/releases) &nbsp;
 [![Static Badge](https://img.shields.io/badge/Telegram%20%7C%20Support-skyblue?style=for-the-badge&logo=telegram)](https://t.me/rmx_3_pro) &nbsp;
 [![Static Badge](https://img.shields.io/badge/Discord%20%7C%20Support-9283ff?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/cZewFPXb2Z) &nbsp;
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/FlaxCube/Indra-Vesh/total?style=for-the-badge&logo=github&logoColor=black&label=Indra-Vesh%20Users&labelColor=lightblue&color=blue)](https://github.com/FlaxCube/Indra-Vesh/releases)
@@ -29,7 +29,7 @@
 - [x]  **Versatile Menus**: Indra's Menu boasts five distinct menus, each tailored for specific sets of tasks:
   - [x]  **Toggle Control**: Toggle features or tweaks, on or off, such as enabling or disabling Double Tap to Wake. 
   - [x]  **Tune Dynamics**: Input-driven functionality, such as changing kcal values contrast, saturation etc.
-  - [x]  **Magic Kit**: Tools for creating custom module, modules pack (single zip for all your modules) and editing modules.
+  - [x]  **Magic Kit**: Tools for creating custom module, modules pack (single zip for all your modules).
 
 ## 🚧 Work in Progress
 The following features are currently under development and are not available in the module yet:
