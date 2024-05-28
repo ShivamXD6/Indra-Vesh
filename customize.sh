@@ -52,12 +52,12 @@ write() {
 }
 
 # Check which Rooting Tool were used to Root Mobile
-if [ -d "/data/adb/ap" ]; then
-ROOT="APatch"
-elif [ -d "/data/adb/ksu" ]; then
-ROOT="KSU"
-elif [ -d "/data/adb/magisk" ]; then
+if [ -d "/data/adb/magisk" ] && magisk -V >/dev/null 2&>1 || magisk -v >/dev/null 2&>1; then
 ROOT="Magisk"
+elif [ -d "/data/adb/ksu" ] && ksud -V >/dev/null 2&>1 || ksud -v >/dev/null 2&>1; then
+ROOT="KSU"
+elif [ -d "/data/adb/ap" ] && apd -V >/dev/null 2&>1 || apd -v >/dev/null 2&>1; then
+ROOT="APatch"
 else
 ROOT="INVALID, Contact @ShastikXD On Telegram"
 fi

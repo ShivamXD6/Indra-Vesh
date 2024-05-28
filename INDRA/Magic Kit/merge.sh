@@ -99,9 +99,10 @@ sleep 3
 for module in "$DIR"/*.zip; do
     if [ -f "$module" ]; then
     unzip "$module" -d "/data/tmp" >> /dev/null;
-     if [ -f  "/data/tmp/module.prop" ]; then
+    modfile=$(find "/data/tmp" -type f -name "module.prop" 2>/dev/null | head -n 1)
+    if [ -n "$modfile" ]; then
         filename=$(basename "$module")
-        modname=$(READS name "/data/tmp/module.prop")
+        modname=$(READS name "$modfile")
         cp -af "$module" "$MODPACK/Modules/$filename"
         indc "${G} ✪ [$cnt] Adding $modname into your $(getprop MPName) Module Pack ${N}"
         rm -rf /data/tmp/*
@@ -128,7 +129,7 @@ Option3() {
 indc "${G} ✪ Give a name to your Module Pack ${N}"
 read NAME
 sed -i "/name/s/.*/name=$NAME/" "$MODPACK/module.prop"
-setprop MPName "$NAME"
+setprop MPName $NAME
 Menu
 }
 

@@ -18,17 +18,17 @@ READS() {
 }
 
 # Check which Rooting Tool were used to Root Mobile
-if [ -d "/data/adb/ap" ]; then
-ROOT="APatch"
-CMD="apd module install"
-elif [ -d "/data/adb/ksu" ]; then
-ROOT="KSU"
-CMD="ksud module install"
-elif [ -d "/data/adb/magisk" ]; then
+if [ -d "/data/adb/magisk" ] && magisk -V >/dev/null 2&>1 || magisk -v >/dev/null 2&>1; then
 ROOT="Magisk"
 CMD="magisk --install-module"
+elif [ -d "/data/adb/ksu" ] && ksud -V >/dev/null 2&>1 || ksud -v >/dev/null 2&>1; then
+ROOT="KSU"
+CMD="ksud module install"
+elif [ -d "/data/adb/ap" ] && apd -V >/dev/null 2&>1 || apd -v >/dev/null 2&>1; then
+ROOT="APatch"
+CMD="apd module install"
 else
-ROOT="INVALID"
+ROOT="INVALID, Contact @ShastikXD On Telegram"
 fi
 
 # Installation Begins
