@@ -1,5 +1,4 @@
 # Network Enhancement
-ind "Applying"
 if [ "$(READ "BLS1" $BLC)" = "ON" ]; then
 write "/proc/sys/net/ipv4/tcp_ecn" "1"
 write "/proc/sys/net/ipv4/tcp_fastopen" "3"
