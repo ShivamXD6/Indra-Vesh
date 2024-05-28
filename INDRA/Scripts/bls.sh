@@ -48,9 +48,9 @@ sleep 3
 Menu
 break
       fi
+    fi
 Menu
 break
-    fi
  fi
   
   indc "${W} ❐ [$cnt] $name - ($status)"

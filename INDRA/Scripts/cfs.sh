@@ -44,10 +44,12 @@ else
     indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" 
 sleep 3 
 Menu
+break
       fi
+   fi
+Menu
+break
 fi
-   Menu
-  fi
   
   indc "${W} ❐ [$cnt] $name"
   
