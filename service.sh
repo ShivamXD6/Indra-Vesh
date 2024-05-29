@@ -1,7 +1,7 @@
 #!/system/bin/sh
-touch /$DB/reboot.log
-INDLOG="/$DB/reboot.log"
-exec 2>>"$INDLOG"
+touch /data/media/0/#INDRA/Logs/reboot.log
+INDLOG="/data/media/0/#INDRA/Logs/reboot.log"
+exec 2>>"$INDLOG" 
 
 # Defines
 DB=/data/INDRA
@@ -68,7 +68,6 @@ for file in "$SRT"/*.sh; do
 done
 
 # Auto Security Patch Level
-ind ""
 YEAR=$(date +%Y)
 MONTH=$(date +%m)
 MONTH=$((10#$MONTH))
@@ -101,32 +100,31 @@ write "/sys/module/lowmemorykiller/parameters/minfree" "2048,4096,8192,16384,245
         sleep 1
     done
 
+ind "Mobile Turned on, Applying Remaining Changes"
 if [ "$(READ "CSST" "$CFGC")" = "Enable" ]; then
 SD="$(READ "CSDI" "$CFGC")"
+mkdir -p "$DB/Custom"
 # Copy Custom Scripts to Database Dir
 for script in "$SD"/*.sh; do
     if [ -f "$script" ]; then
         filename=$(basename "$script")
-        cp "$script" "$DB/Custom Scripts/$filename"
+        cp "$script" "$DB/Custom/$filename"
     fi
 done
 
 # Start Executing Custom Scripts
-for file in "$DB/Custom Scripts"/*.sh; do
+for file in "$DB/Custom"/*.sh; do
     if [ -f "$file" ]; then
     filename=$(basename "$file")
    EXSC "$file" "Successfully Executed your Custom $filename Script"
-    rm -rf "$file"
     fi
 done
+rm -rf "$DB/Custom"
 fi
 
 # Indra's Menu Logs
 touch /sdcard/#INDRA/Logs/menu.log
 INDMLOG="/sdcard/#INDRA/Logs/menu.log"
 echo "##### INDRA - Menu Logs #####" > "$INDMLOG"
-echo "---------- Write 'su -c indra' in Termux to access menu ----------" >> "$INDMLOG"
-
-# Copy Logs to Sdcard
-cp -af "/data/INDRA/reboot.log" "/sdcard/#INDRA/Logs/reboot.log"
+echo "# Write 'su -c indra' in Termux to access menu" >> "$INDMLOG"
 }&
