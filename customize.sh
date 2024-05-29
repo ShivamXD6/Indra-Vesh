@@ -1,4 +1,7 @@
 #!/system/bin/sh
+touch /sdcard/#INDRA/Logs/install.log
+INDLOG="/sdcard/#INDRA/Logs/install.log"
+exec 2>>"$INDLOG" 
 
 # Abort in Recovery 
 if ! $BOOTMODE; then
@@ -21,17 +24,17 @@ DB=/data/INDRA
 
 # INDRA LOGS
 ui_print " 📝 For logs - /sdcard/#INDRA/Logs"
-touch /sdcard/#INDRA/Logs/install.log
-INDLOG="/sdcard/#INDRA/Logs/install.log"
 echo "##### INDRA - Installation Logs #####" > "$INDLOG"
 ind () {
-  if [ -n "$1" ]; then
-    echo "" >> "$INDLOG"
-    echo "$1 - [$(date)]" >> "$INDLOG"
-    ui_print "$1"
-    ui_print ""
-  fi
-  exec 2> >(tee -ai $INDLOG >/dev/null)
+    if [ "$1" = "Exclude" ]; then
+      exec 2>/dev/null;
+    else
+      echo "" >> "$INDLOG"
+      echo "# $1 - [$(date)]" >> "$INDLOG"
+      exec 2>>"$INDLOG" 
+      ui_print "$1"
+      ui_print ""
+    fi
 }
 
 # Read Files
@@ -66,7 +69,7 @@ fi
 ui_print ""
 ind "          ⚡ INDRA-VESH ⚡"
 ind "          🧑‍💻 By @ShastikXD 💠"
-ind "          ℹ️ Version :- $(READ version "$MODPATH"/module.prop) ☁️ "
+ind "          ℹ️ Version :- $(READ version "$MODPATH"/module.prop) "
 ind "          🔧 Tool Used For Rooting :- $ROOT"
 ind "          🔐 Auto Security Patch"
 ind "          💿 Ram Management"
@@ -87,7 +90,6 @@ done
 fi
 
 # Auto Security Patch Level
-ind ""
 YEAR=$(date +%Y)
 MONTH=$(date +%m)
 MONTH=$((10#$MONTH))

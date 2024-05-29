@@ -1,0 +1,4 @@
+VER=1
+
+CSST=Enable
+CSDI=/sdcard/#INDRA

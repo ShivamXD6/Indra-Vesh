@@ -1,4 +1,6 @@
 #!/system/bin/sh
+INDLOG="/sdcard/#INDRA/Logs/menu.log"
+exec 2>>"$INDLOG"
 
 # Read Files (Without Space)
 READ() {
@@ -13,13 +15,15 @@ READS() {
   echo "${value//[[:space:]]/ }"
 }
 
-# Indra's Logs  
-INDLOG="/sdcard/#INDRA/Logs/menu.log"
+# Indra's Logs
 ind () {
-  if [ -n "$1" ]; then
-    echo "" >> "$INDLOG"
-    echo "# $1 - [$(date)]" >> "$INDLOG"
-  fi
+    if [ "$1" = "Exclude" ]; then
+      exec 2>/dev/null;
+    else
+      echo "" >> "$INDLOG"
+      echo "# $1 - [$(date)]" >> "$INDLOG"
+      exec 2>>"$INDLOG" 
+    fi
 }
 
 # Indra's Comments  
@@ -49,8 +53,12 @@ SRT=$DB/Scripts
 CONF=$DB/Configs
 BLC=$CONF/blc.txt
 CFC=$CONF/cfc.txt
+CFGC=$CONF/cfgc.txt
 CYOM="$DB/Magic Kit/CYOM"
 MOD="$CYOM/Module"
+ROOTDIR=/data/adb/modules
+MERGE="$DB/Magic Kit/MERGE"
+MODPACK="$MERGE/ModPack"
 
 # Check which Rooting Tool were used to Root Mobile
 if [ -d "/data/adb/magisk" ] && magisk -V >/dev/null 2&>1 || magisk -v >/dev/null 2&>1; then

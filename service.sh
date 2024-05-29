@@ -1,11 +1,14 @@
 #!/system/bin/sh
+touch /$DB/reboot.log
+INDLOG="/$DB/reboot.log"
+exec 2>>"$INDLOG"
 
 # Defines
-SD=/sdcard/#INDRA
 DB=/data/INDRA
 SRT=$DB/BLScripts
 CONF=$DB/Configs
 BLC=$CONF/blc.txt
+CFGC=$CONF/cfgc.txt
 MODPATH="${0%/*}"
 
 # Read Files (Without Space)
@@ -22,15 +25,15 @@ READS() {
 }
 
 # Indra's Reboot Logs
-touch /$DB/reboot.log
-INDLOG="/$DB/reboot.log"
 echo "##### INDRA - Reboot Logs #####" > "$INDLOG"
 ind () {
-  if [ -n "$1" ]; then
-    echo "" >> "$INDLOG"
-    echo " # $1 - [$(date)]" >> "$INDLOG"
-  fi
-  exec 2> >(tee -ai $INDLOG >/dev/null)
+    if [ "$1" = "Exclude" ]; then
+      exec 2>/dev/null;
+    else
+      echo "" >> "$INDLOG"
+      echo "# $1 - [$(date)]" >> "$INDLOG"
+      exec 2>>"$INDLOG" 
+    fi
 }
 
 # Write
@@ -98,6 +101,8 @@ write "/sys/module/lowmemorykiller/parameters/minfree" "2048,4096,8192,16384,245
         sleep 1
     done
 
+if [ "$(READ "CSST" "$CFGC")" = "Enable" ]; then
+SD="$(READ "CSDI" "$CFGC")"
 # Copy Custom Scripts to Database Dir
 for script in "$SD"/*.sh; do
     if [ -f "$script" ]; then
@@ -114,6 +119,7 @@ for file in "$DB/Custom Scripts"/*.sh; do
     rm -rf "$file"
     fi
 done
+fi
 
 # Indra's Menu Logs
 touch /sdcard/#INDRA/Logs/menu.log

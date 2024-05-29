@@ -38,7 +38,7 @@ Return() {
     indra
     exit
     printf "\033c"
-}
+} 
 
 printf "\033c"
 Menu
