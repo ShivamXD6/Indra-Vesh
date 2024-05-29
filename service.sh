@@ -101,11 +101,11 @@ write "/sys/module/lowmemorykiller/parameters/minfree" "2048,4096,8192,16384,245
     done
 
 ind "Mobile Turned on, Applying Remaining Changes"
-if [ "$(READ "CSST" "$CFGC")" = "Enable" ]; then
-SD="$(READ "CSDI" "$CFGC")"
+if [ "$(READ "CSST" "$CFGC")" = "Enabled" ]; then
+CS="$(READ "CSDI" "$CFGC")"
 mkdir -p "$DB/Custom"
 # Copy Custom Scripts to Database Dir
-for script in "$SD"/*.sh; do
+for script in "$CS"/*.sh; do
     if [ -f "$script" ]; then
         filename=$(basename "$script")
         cp "$script" "$DB/Custom/$filename"
@@ -127,4 +127,7 @@ touch /sdcard/#INDRA/Logs/menu.log
 INDMLOG="/sdcard/#INDRA/Logs/menu.log"
 echo "##### INDRA - Menu Logs #####" > "$INDMLOG"
 echo "# Write 'su -c indra' in Termux to access menu" >> "$INDMLOG"
+if [ "$(READ "LOGS" "$CFGC")" = "Disabled" ]; then
+rm -rf /sdcard/#INDRA/Logs/*
+fi
 }&
