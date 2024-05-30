@@ -13,7 +13,7 @@ Menu() {
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ❐ [1] Toggle Control ${N}"
     indc "${W} ❐ [2] Tune Dynamics ${N}"
-    indc "${W} ❐ [3] Magic Kit ${V}(!NEW)${N}"
+    indc "${W} ❐ [3] Magic Kit ${N}"
     indc "${W} ❐ [4] Configuration ${N}"
     indc "${W} ❐ [5] Updater ${N}"
     indc "${R} ✖ [0] Exit ${N}"

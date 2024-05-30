@@ -1,4 +1,4 @@
-CHANGELOG=Added Changelog Functionality for Each Update.
+CHANGELOG=Added Changelogs in Updater for Each Update.
 
 CORE-V=2
 CORE-S=

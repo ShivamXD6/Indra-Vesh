@@ -1,5 +1,3 @@
-CFV=1
-
 CFID1=DCC
 CFN1=Display Colors Control
 CFL1=https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/CFScripts/DCC.sh?inline=false

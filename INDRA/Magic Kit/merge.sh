@@ -1,8 +1,3 @@
-# Defines
-ROOTDIR=/data/adb/modules
-MERGE="$DB/Magic Kit/MERGE"
-MODPACK="$MERGE/ModPack"
-
 # Setup Module Pack Environment
 indc "${G} ✪ Setting up Module Pack Environment... ${N}"
 mkdir -p "$MODPACK/Modules"
@@ -129,7 +124,7 @@ Option3() {
 indc "${G} ✪ Give a name to your Module Pack ${N}"
 read NAME
 sed -i "/name/s/.*/name=$NAME/" "$MODPACK/module.prop"
-setprop MPName "$NAME"
+setprop MPName $NAME
 Menu
 }
 

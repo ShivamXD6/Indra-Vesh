@@ -1,5 +1,3 @@
-BLV=1
-
 BLID1=NET
 BLN1=Network Enhancement
 BLS1=ON

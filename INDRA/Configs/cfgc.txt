@@ -1,4 +1,3 @@
-VER=1
-
-CSST=Enable
+CSST=Enabled
 CSDI=/sdcard/#INDRA
+LOGS=Enabled

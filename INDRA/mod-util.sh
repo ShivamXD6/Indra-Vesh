@@ -59,6 +59,7 @@ MOD="$CYOM/Module"
 ROOTDIR=/data/adb/modules
 MERGE="$DB/Magic Kit/MERGE"
 MODPACK="$MERGE/ModPack"
+UPC=$CONF/upc.txt
 
 # Check which Rooting Tool were used to Root Mobile
 if [ -d "/data/adb/magisk" ] && magisk -V >/dev/null 2&>1 || magisk -v >/dev/null 2&>1; then

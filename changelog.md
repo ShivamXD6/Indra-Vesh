@@ -1,3 +1,17 @@
+# Amaravati - Indra's Divine Capital
+## Changelogs - 30 May 2024:
+1. Added Configuration in Indra's Menu.
+ • Turn on or off Custom Script.
+ • Change Custom Script Directory.
+ • Disable Logs. (Not actually disables but Deletes it)
+2. Fixed Advanced Method of Creating your Module Pack in Magic Kit.
+3. Added Updater in Indra's Menu
+ • Update Cores. (Service or Props)
+ • Update Menus.
+4. Improved Root Tools Detection.
+5. Improved Logs System and Fixed Menus logs not getting captured.
+6. Misc Changes and Fixes in Overall Module.
+
 # Devloka - Indra's God's Domain
 ## Changelogs - 26 May 2024:
 1. Added Magic Kit Menu in Indra-Vesh Menu

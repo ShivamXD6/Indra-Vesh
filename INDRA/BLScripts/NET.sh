@@ -14,6 +14,7 @@ fi
 		sleep 1
 	done
 # Turn On & Off Airplane Mode 
+ind "Exclude"
 am broadcast -a android.intent.action.AIRPLANE_MODE --ez state true > /dev/null;
 am broadcast -a android.intent.action.AIRPLANE_MODE --ez state false > /dev/null;
 }&

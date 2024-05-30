@@ -1,6 +1,6 @@
 ![Indra Vesh Banner](https://imgur.com/B6CTkgK.png)
 
-[![Static Badge](https://img.shields.io/badge/Download-Version%3A%20Devloka-brightgreen?style=for-the-badge)](https://github.com/FlaxCube/Indra-Vesh/releases) &nbsp;
+[![Static Badge](https://img.shields.io/badge/Download-Version%3A%20Amaravati-brightgreen?style=for-the-badge)](https://github.com/FlaxCube/Indra-Vesh/releases) &nbsp;
 [![Static Badge](https://img.shields.io/badge/Telegram%20%7C%20Support-skyblue?style=for-the-badge&logo=telegram)](https://t.me/rmx_3_pro) &nbsp;
 [![Static Badge](https://img.shields.io/badge/Discord%20%7C%20Support-9283ff?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/cZewFPXb2Z) &nbsp;
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/FlaxCube/Indra-Vesh/total?style=for-the-badge&logo=github&logoColor=black&label=Indra-Vesh%20Users&labelColor=lightblue&color=blue)](https://github.com/FlaxCube/Indra-Vesh/releases)
@@ -13,7 +13,6 @@
 
 # 📑 Table of Contents
 - [✨ Features](#-features)
-- [🚧 Work In Progress](#-work-in-progress)
 - [🧰 Installation](#-installation)
 - [📖 Usage](#-usage)
 - [🔧 Compatibility](#-compatibility)
@@ -30,13 +29,9 @@
   - [x]  **Toggle Control**: Toggle features or tweaks, on or off, such as enabling or disabling Double Tap to Wake. 
   - [x]  **Tune Dynamics**: Input-driven functionality, such as changing kcal values contrast, saturation etc.
   - [x]  **Magic Kit**: Tools for creating custom module, modules pack (single zip for all your modules).
-
-## 🚧 Work in Progress
-The following features are currently under development and are not available in the module yet:
-
-- [ ]  **Configuration**: Module-specific settings to utilize custom scripts and other user-defined configurations.
-- [ ]  **Updater**: A system to update module submenus (e.g., Binary Lever, Custom Forge) and upgrade all modules with a single click.
-
+  - [x]  **Configuration**: Module-specific settings to utilize custom scripts and other user-defined configurations.
+  - [x]  **Updater**: A system to update module core, Sub-menus etc without Updating the Module or Rebooting Mobile.
+  
 ## 🧰 Installation
 To install the Indra Vesh Magisk Module, follow these steps:
 
