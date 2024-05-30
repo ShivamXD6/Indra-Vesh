@@ -1,3 +1,5 @@
+CHANGELOG=Added Changelog Functionality for Each Update.
+
 CORE-V=2
 CORE-S=
 
@@ -16,5 +18,5 @@ MAGI-S=
 CONF-V=1
 CONF-S=
 
-UPDA-V=1
+UPDA-V=2
 UPDA-S=
