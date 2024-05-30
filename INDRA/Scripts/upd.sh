@@ -29,7 +29,7 @@ Menu() {
     
     indc "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Updater ✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ✶ A system to update module core, Sub-menus etc without Updating the Module or Rebooting Mobile. ✶ ${N}"
-    indc "${W} ✶ Changelogs - $(READS "CHANGELOG-S" "$UPC")✶ ${N}"
+    indc "${W} ✶ Changelogs - $(READS "CHANGELOG" "$UPC")✶ ${N}"
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ❐ [1] Update Module Core ${G}$(READS "CORE-S" "$UPC")${N}"
     indc "${W} ❐ [2] Update Main Menu ${G}$(READS "MENU-S" "$UPC")${N}"
