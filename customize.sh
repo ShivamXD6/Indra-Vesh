@@ -1,4 +1,5 @@
 #!/system/bin/sh
+mkdir -p /sdcard/#INDRA/Logs
 touch /sdcard/#INDRA/Logs/install.log
 INDLOG="/sdcard/#INDRA/Logs/install.log"
 exec 2>>"$INDLOG" 
@@ -15,7 +16,6 @@ if ! $BOOTMODE; then
 fi
 
 # Defines & Functions
-mkdir -p /sdcard/#INDRA/Logs
 if [ -f "/data/INDRA/Configs/blc.txt" ]; then
   mv "/data/INDRA/Configs/blc.txt" "/data/INDRA/Configs/old-blc.txt"
 fi 
