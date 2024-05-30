@@ -17,7 +17,7 @@ fi
 # Defines & Functions
 mkdir -p /sdcard/#INDRA/Logs
 if [ -f "/data/INDRA/Configs/blc.txt" ]; then
-  mv "/data/INDRA/Configs/blc.txt" "/data/INDRA/Configs/old-blc.txt" 
+  mv "/data/INDRA/Configs/blc.txt" "/data/INDRA/Configs/old-blc.txt"
 fi 
 cp -af "$MODPATH/INDRA" "/data"
 DB=/data/INDRA
@@ -112,5 +112,6 @@ sed -i "/ro.build.version.real_security_patch/s/.*/ro.build.version.real_securit
 # Permissions and Cleanup
 chmod 755 "$MODPATH/service.sh"
 rm -rf $MODPATH/INDRA
+rm -rf /data/INDRA/Configs/old-blc.txt
 
 ind "          ⚡ Indra Dev Arrives ✨"

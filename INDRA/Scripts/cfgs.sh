@@ -14,7 +14,7 @@ Menu() {
     indc "${R} ✖ [0] Return to Indra's Menu ${N}"
     indc "${R} ✖ [+] Exit Directly ${N}"
     indc "${Y}✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
-    indc "${C} ✷ Enter Number Respective to its Menu:  ${N}"
+    indc "${C} ✷ Enter Number Respective to its option:  ${N}"
     read option
     case $option in
         1) Option1 ;;
