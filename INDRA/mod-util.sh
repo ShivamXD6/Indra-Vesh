@@ -261,6 +261,7 @@ local_size=$(stat -c %s "$filepath")
 ProgressBar "$local_size" "$online_size"
 sleep 1
 done
+printf "\033c"
 else
    indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}"
 sleep 3

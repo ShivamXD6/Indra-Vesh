@@ -1,23 +1,6 @@
 #!/system/bin/sh
 UPC=$CONF/upc.txt
 OLDUPC=$CONF/old-upc.txt
-
-indc "${V} ✶ CHANGELOGS ✶ ${N}"
-# Check for old Changelogs
-cnt=1
-count=1
-if [ -f "$OLDUPC" ]; then
-# Add old changelogs if Not updated
-while true; do
-CHNG=$(READS "CHNG$cnt" "$OLDUPC")
-if [ -z "$CHNG" ]; then
-break
-fi
-indc "${W} ✶ [$cnt] - $CHNG${N}"
-cnt=$((cnt + 1))
-count=$((count + 1))
-done
-fi 
  
 # Check for Updates
 mv "$UPC" "$CONF/old-upc.txt"
@@ -25,16 +8,16 @@ Download "https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/INDRA/Confi
 
 # Get Each Changelog of the Update
 cnt=1
+indc "${V} ✶ CHANGELOGS ✶ ${N}"
 while true; do
 CHNG=$(READS "CHNG$cnt" "$UPC")
 if [ -z "$CHNG" ]; then
 break
 fi
-indc "${W} ✶ [$count] - $CHNG${N}"
+indc "${W} ✶ [$cnt] - $CHNG${N}"
 cnt=$((cnt + 1))
-count=$((count + 1))
 done
-
+indc ""
 indc "${G} ✶ Press Enter to proceed update ${N}"
 indc "${G} ✶ Type Anything and Press Enter to abort the update ${N}"
 read INP
@@ -118,11 +101,12 @@ fi
 # Check if Anything updated
 if [ "$UPAV" -eq "1" ]; then
 indc "${G} ✶ Update Finished!! ${N}"
-rm -rf "$OLDUPC"
+sleep 2
 else
-indc "${R} ✖ No Updates Found ${N}"
+indc "${R} ✖ Update already finished. Please check Later ${N}"
+sleep 2
 fi
 
-
+rm -rf "$OLDUPC"
 indra
 exit
