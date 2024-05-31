@@ -3,7 +3,7 @@ CHNG2=Removed Menu based Updater, Instead automatically updating everything.
 
 CORE-V=1
 MENU-V=1
-TOGG-V=2
+TOGG-V=1
 TUNE-V=1
 MAGI-V=1
 CONF-V=1
