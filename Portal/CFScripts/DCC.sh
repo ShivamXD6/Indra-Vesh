@@ -97,8 +97,8 @@ fi
 indc "${G} > Enter Custom Hue to Set: ${N}"
 read CUS
 if [ -n "$CUS" ]; then
-while [ "$CUS" -lt "130" ] || [ "$CUS" -ge "380" ]; do
-    indc "${R} ✖ Please use Value Between 130 to 380.${N}"
+while [ "$CUS" -lt "0" ] || [ "$CUS" -ge "380" ]; do
+    indc "${R} ✖ Please use Value Between 0 to 380.${N}"
     read CUS
 done
 HUE=$CUS

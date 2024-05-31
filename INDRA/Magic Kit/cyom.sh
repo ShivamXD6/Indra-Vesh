@@ -69,7 +69,7 @@ sed -n "/$comment/,/^#/p" "$source_file" | sed -e "/$comment/d" -e '/^#/d' -e '/
 # Download zip bin if not found
 zip_size=$(stat -c %s "$DB/zip")
 if [ "$local_size" -eq "0" ]; then
-Download "https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/zip?inline=false" "$DB/zip"
+Download "https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/Portal/zip" "$DB/zip"
 chmod +x "$DB/zip"
 clear
 fi

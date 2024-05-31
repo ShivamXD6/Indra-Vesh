@@ -214,7 +214,7 @@ fi
 
 # Check for Internet Connection
 test_net() {
-if ping -q -c 1 -W 1 google.com >/dev/null 2>&1; then
+if timeout 5 ping -q -c 1 -W 1 google.com >/dev/null 2>&1; then
     CONNECTION="${G}Online"
     NET="ON"
 else
