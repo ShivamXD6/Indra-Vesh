@@ -262,8 +262,10 @@ ProgressBar "$local_size" "$online_size"
 sleep 1
 done
 else
-   indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" 
+   indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}"
 sleep 3
+indra
+exit
 fi
 }
 

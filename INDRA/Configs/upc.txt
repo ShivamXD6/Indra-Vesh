@@ -1,22 +1,10 @@
-CHANGELOG="Updated Base and Added Internet Detection"
+CHNG1=Updated Base and Added Internet Detection
+CHNG2=Removed Menu based Updater, Instead automatically updating everything.
 
-CORE-V=2
-CORE-S=
-
-MENU-V=2
-MENU-S=
-
-TOGG-V=2
-TOGG-S=
-
-TUNE-V=2
-TUNE-S=
-
+CORE-V=1
+MENU-V=1
+TOGG-V=1
+TUNE-V=1
 MAGI-V=1
-MAGI-S=
-
 CONF-V=1
-CONF-S=
-
-UPDA-V=3
-UPDA-S=
+UPDA-V=1
