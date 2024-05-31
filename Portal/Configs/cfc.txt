@@ -1,3 +1,0 @@
-CFID1=DCC
-CFN1=Display Colors Control
-CFL1=https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/Portal/CFScripts/DCC.sh

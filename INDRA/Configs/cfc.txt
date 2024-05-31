@@ -1,3 +1,10 @@
 CFID1=DCC
 CFN1=Display Colors Control
 CFL1=https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/Portal/CFScripts/DCC.sh
+CONT=262
+HUE=0
+SAT=272
+VAL=256
+RED=256
+GREEN=256
+BLUE=256
