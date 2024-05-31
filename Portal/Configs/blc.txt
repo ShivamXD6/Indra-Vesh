@@ -1,0 +1,14 @@
+BLID1=NET
+BLN1=Network Enhancement
+BLS1=ON
+BLL1=https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/BLScripts/NET.sh?inline=false
+
+BLID2=DT2W
+BLN2=Double Tap To Wake
+BLS2=OFF
+BLL2=https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/BLScripts/DT2W.sh?inline=false
+
+BLID3=DCC
+BLN3=Display Colors Control
+BLS3=OFF
+BLL3=https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/BLScripts/DCC.sh?inline=false

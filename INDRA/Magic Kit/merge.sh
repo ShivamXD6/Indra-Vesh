@@ -7,7 +7,8 @@ cp -af "$MERGE/module.prop" "$MODPACK"
 cp -af "$MERGE/customize.sh" "$MODPACK"
 
 # Download zip bin if not found
-if [ ! -f "$DB/zip" ]; then
+zip_size=$(stat -c %s "$DB/zip")
+if [ "$local_size" -eq "0" ]; then
 Download "https://gitlab.com/shivamashokdhage6/indra-vesh/-/raw/main/zip?inline=false" "$DB/zip"
 chmod +x "$DB/zip"
 clear
