@@ -1,15 +1,16 @@
 #!/system/bin/sh
- 
+
 # Menu
 Menu() {
     echo -e '\n'
     printf "\033c"
-    
+    test_net 
     indc "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Command Center ✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ✶ Welcome to Indra-Vesh - Menu ${N}"
     indc "${W} ✶ Created & Written By @ShastikXD ${N}"
-    indc "${W} ✶ Version = $VER ${N}"
-    indc "${W} ✶ Tool Used for Rooting = $ROOT ${N}"
+    indc "${W} ✶ Version = ${C}$VER ${N}"
+    indc "${W} ✶ Tool Used for Rooting = ${B}$ROOT ${N}"
+    indc "${W} ✶ Internet = $CONNECTION ${N}"
     indc "${Y} ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ❐ [1] Toggle Control ${N}"
     indc "${W} ❐ [2] Tune Dynamics ${N}"

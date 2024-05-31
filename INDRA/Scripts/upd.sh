@@ -60,6 +60,7 @@ Option1 () {
     if [ "$(READS "CORE-S" "$UPC")" = "(Update Available!!)" ]; then
     Download "https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/service.sh" "$MODPATH/service.sh"
     Download "https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/system.prop" "$MODPATH/system.prop"
+    Download "https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/system/bin/indra" "$MODPATH/system/bin/indra"
     sed -i "0,/^CORE-S=/s|^CORE-S=.*|CORE-S=|" "$UPC"
     indc "${G} Updated Cores parts to "$(READ "CORE-V" "$UPC")" ${N}"
     indc "${R} Reboot Required to Apply Changes ${N}"

@@ -5,7 +5,7 @@ Menu() {
     echo -e '\n'
     printf "\033c"
     indc "${C} ✦✧✦✧✦✧✦✧✦✧ Indra Vesh - Magic Kit ✧✦✧✦✧✦✧✦✧✦ ${N}"
-    indc "${W} ✶ A Tool to Create your custom module, to Merge modules into a single zip or to Edit Modules.✶ ${N}"
+    indc "${W} ✶ Tool for creating custom module or to create modules pack (single zip for all your modules). ✶ ${N}"
     indc "${Y}  ✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ❐ [1] Create Your Own Module ${N}"
     indc "${W} ❐ [2] Create Your Own Modules Package ${N}"

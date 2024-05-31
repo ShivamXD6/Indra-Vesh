@@ -61,17 +61,6 @@ MERGE="$DB/Magic Kit/MERGE"
 MODPACK="$MERGE/ModPack"
 UPC=$CONF/upc.txt
 
-# Check which Rooting Tool were used to Root Mobile
-if [ -d "/data/adb/magisk" ] && magisk -V >/dev/null 2&>1 || magisk -v >/dev/null 2&>1; then
-ROOT="Magisk"
-elif [ -d "/data/adb/ksu" ] && ksud -V >/dev/null 2&>1 || ksud -v >/dev/null 2&>1; then
-ROOT="KSU"
-elif [ -d "/data/adb/ap" ] && apd -V >/dev/null 2&>1 || apd -v >/dev/null 2&>1; then
-ROOT="APatch"
-else
-ROOT="INVALID, Contact @ShastikXD On Telegram"
-fi
-
 # Check A/B slot
 if [[ -d /system_root ]]; then
   isABDevice=true
@@ -134,6 +123,7 @@ is_mounted() {
   grep -q " $(readlink -f "$1") " /proc/mounts 2>/dev/null
   return $?
 }
+
 
 # Abort
 abort() {
@@ -211,6 +201,28 @@ set_file_prop() {
   fi
 }
 
+# Check which Rooting Tool were used to Root Mobile
+if [ -d "/data/adb/magisk" ] && magisk -V >/dev/null 2&>1 || magisk -v >/dev/null 2&>1; then
+ROOT="Magisk"
+elif [ -d "/data/adb/ksu" ] && ksud -V >/dev/null 2&>1 || ksud -v >/dev/null 2&>1; then
+ROOT="KSU"
+elif [ -d "/data/adb/ap" ] && apd -V >/dev/null 2&>1 || apd -v >/dev/null 2&>1; then
+ROOT="APatch"
+else
+ROOT="INVALID, Contact @ShastikXD On Telegram"
+fi
+
+# Check for Internet Connection
+test_net() {
+if ping -q -c 1 -W 1 google.com >/dev/null 2>&1; then
+    CONNECTION="${G}Online"
+    NET="ON"
+else
+    CONNECTION="${R}Offline"
+    NET="OFF"
+fi
+}
+
 # ProgressBar <progress> <total>
 ProgressBar() {
 # Determine Screen Size
@@ -238,16 +250,21 @@ printf "\rProgress : ${BGBL}|${N}${_done// /${BGBL}$loadBar${N}}${_left// / }${B
 Download() {
 local url=$1
 local filepath=$2
+test_net
+if [ "$NET" = "ON" ]; then
 online_size=$(curl -sI "$url" | grep -i Content-Length | awk '{print $2}' | tr -d '')
 touch "$filepath" 
 local_size=$(stat -c %s "$filepath")
 curl -L "$url" -o "$filepath" > /dev/null 2>&1 &
-
 while [ "$local_size" -lt "$online_size" ]; do
 local_size=$(stat -c %s "$filepath")
 ProgressBar "$local_size" "$online_size"
 sleep 1
 done
+else
+   indc "${R} ✖ Internet is not working, Please check your internet connection. ${N}" 
+sleep 3
+fi
 }
 
 # Function to turn on or off Toggle Control Options
@@ -260,54 +277,4 @@ local name=$5
 sed -i "/$value/s/.*/$value=$bool/" $file
 ind "Turning $bool $name"
 source $BLSRT/$id.sh
-}
-
-#https://github.com/fearside/SimpleProgressSpinner
-# Spinner <message>
-Spinner() {
-
-# Choose which character to show.
-case ${_indicator} in
-  "|") _indicator="/";;
-  "/") _indicator="-";;
-  "-") _indicator="\\";;
-  "\\") _indicator="|";;
-  # Initiate spinner character
-  *) _indicator="\\";;
-esac
-
-# Print simple progress spinner
-printf "\r${@} [${_indicator}]"
-}
-
-# cmd & spinner <message>
-e_spinner() {
-  PID=$!
-  h=0; anim='-\|/';
-  while [[ -d /proc/$PID ]]; do
-    h=$(((h+1)%4))
-    sleep 0.02
-    printf "\r${@} [${anim:$h:1}]"
-  done
-} 
-
-# Print Random
-# Prints a message at random
-# CHANCES - no. of chances <integer>
-# TARGET - target value out of CHANCES <integer>
-prandom() {
-  local CHANCES=2
-  local TARGET=2
-  [[ "$1" =  "-c" ]] && { local CHANCES=$2; local TARGET=$3; shift 3; }
-  [[ "$((RANDOM%CHANCES+1))" -eq "$TARGET" ]] && echo "$@"
-}
-
-# Print Center
-# Prints text in the center of terminal
-pcenter() {
-  local CHAR=$(printf "$@" | sed 's|\\e[[0-9;]*m||g' | wc -m)
-  local hfCOLUMN=$((COLUMNS/2))
-  local hfCHAR=$((CHAR/2))
-  local indent=$((hfCOLUMN-hfCHAR))
-  echo "$(printf '%*s' "${indent}" '') $@"
 }
