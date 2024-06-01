@@ -34,26 +34,31 @@ Menu() {
 
 Option1 () {
     printf "\033c"
+    ind "# Opening Toggle Control Menu"
     . $DB/Scripts/bls.sh
 }
 
 Option2 () {
     printf "\033c"
+    ind "# Opening Tune Dynamics Menu"
     . $DB/Scripts/cfs.sh
 }
 
 Option3 () {
     printf "\033c"
+    ind "# Opening Magic Kit Menu"
     . $DB/Scripts/mks.sh
 }
 
 Option4 () {
     printf "\033c"
+    ind "# Opening Configuration Menu"
     . $DB/Scripts/cfgs.sh
 }
 
 Option5 () {
     printf "\033c"
+    ind "# Opening Updater Menu"
     . $DB/Scripts/upd.sh
 }
 

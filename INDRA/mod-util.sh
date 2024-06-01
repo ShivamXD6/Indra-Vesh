@@ -1,6 +1,15 @@
 #!/system/bin/sh
+
+if [ ! -d "/sdcard/#INDRA/Logs" ]; then
+mkdir -p "/sdcard/#INDRA/Logs"
+fi
+
+touch "/sdcard/#INDRA/Logs/menu.log"
 INDLOG="/sdcard/#INDRA/Logs/menu.log"
 exec 2>>"$INDLOG"
+
+# Reset Menu Logs 
+echo "##### INDRA - Menu Logs - [$(date)] #####" > "$INDLOG"
 
 # Read Files (Without Space)
 READ() {
@@ -21,7 +30,7 @@ ind () {
       exec 2>/dev/null;
     else
       echo "" >> "$INDLOG"
-      echo "# $1 - [$(date)]" >> "$INDLOG"
+      echo "$1 - [$(date)]" >> "$INDLOG"
       exec 2>>"$INDLOG" 
     fi
 }
@@ -36,12 +45,22 @@ indc () {
 
 # Write Function
 write() {
- [[ ! -f "$1" ]] && return 1
- chmod +w "$1" 2> /dev/null
- if ! echo "$2" > "$1"   2> /dev/null
- then
-  return 1  
- fi
+  if [[ ! -f "$1" ]]; then
+    ind "- $1 doesn't exist, skipping..."
+    return 1
+	fi
+  local curval=$(cat "$1" 2> /dev/null)
+  if [[ "$curval" == "$2" ]]; then
+    ind "- $1 is already set to $2, skipping..."
+	return 1
+  fi
+  chmod +w "$1" 2> /dev/null
+   if ! echo "$2" > "$1" 2> /dev/null
+   then
+     ind "× Failed: $1 -> $2"
+	 return 0
+   fi
+  ind "- $1 $curval -> $2"
 }
 
 # Defines Directories 
@@ -278,6 +297,6 @@ local file=$3
 local id=$4
 local name=$5
 sed -i "/$value/s/.*/$value=$bool/" $file
-ind "Turning $bool $name"
+ind "# Turning $bool $name"
 source $BLSRT/$id.sh
 }

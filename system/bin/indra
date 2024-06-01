@@ -1,5 +1,12 @@
 #!/system/bin/sh
 
+# Check for Database (If not exist Abort anything related to module)
+if [ ! -d "/data/INDRA/" ]; then
+echo "\e[01;31m Indravesh Module Dead, Please Reflash Indravesh Module \e[0m"
+sleep 5
+exit
+fi
+
 # Load mod-util.sh
 . /data/INDRA/mod-util.sh || exit $?
 

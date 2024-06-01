@@ -48,6 +48,11 @@ debug.sf.hw=1
 persist.sys.ui.hw=1
  
 # Network
-net.tcp.buffersize.default=4096,87380,256960,4096,16384,256960
-ro.ril.hep=1
-net.tcp.default_init_rwnd=60
+ro.ril.set.mtu1472=1
+ro.mot.eri.losalert.delay=2000
+persist.cust.tel.eons=1
+ro.config.hw_fast_dormancy=1
+ro.ril.gprsclass=10
+ro.ril.hsdpa.category=8
+ro.ril.hsupa.category=6
+ro.ril.hsxpa=2

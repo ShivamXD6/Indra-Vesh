@@ -1,16 +1,14 @@
 # Display Colors Control
 
 # Config File
-DCC_DIR=/data/INDRA/Configs/cfc.txt
+DCC_DIR=/data/INDRA/Configs/dcc.txt
 
 # Check if KCAL Supported or not
 if [ -d "/sys/module/msm_drm/parameters/" ]; then
-    kcal_d="/sys/module/msm_drm/parameters/"
-    elif [ -d "/sys/devices/platform/kcal_ctrl.0/" ]; then
-    kcal_d="/sys/devices/platform/kcal_ctrl.0/"
+    kcal_d="/sys/module/msm_drm/parameters"
+    elif [ -d "/sys/devices/platform/kcal_ctrl.0" ]; then
+    kcal_d="/sys/devices/platform/kcal_ctrl.0"
    write "/sys/devices/platform/kcal_ctrl.0/kcal_enable" "1"
-   else
-   ind "${R} ✖ KCAL is Not Supported, tell kernel dev to add support for KCAL ${N}" & sleep 3
 fi
 
 # Default Values
@@ -27,6 +25,8 @@ if ! [ -z $kcal_d ]; then
 
 if [ "$(READ "BLS3" $BLC)" = "ON" ]; then
 
+if [ -f "$DCC_DIR" ]; then
+
 # Custom Values 
 CONT=$(READ "CONT" $DCC_DIR)
 HUE=$(READ "HUE" $DCC_DIR)
@@ -35,6 +35,11 @@ VAL=$(READ "VAL" $DCC_DIR)
 RED=$(READ "RED" $DCC_DIR)
 GREEN=$(READ "GREEN" $DCC_DIR)
 BLUE=$(READ "BLUE" $DCC_DIR)
+else
+# Use Amoled Like Colors by Default
+CONT=262
+SAT=272
+fi
 
 # Set Display Colors 
 write "$kcal_d/kcal_cont" "$CONT"

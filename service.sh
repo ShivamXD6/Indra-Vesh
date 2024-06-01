@@ -1,4 +1,8 @@
 #!/system/bin/sh
+if [ ! -d "/data/media/0/#INDRA/Logs" ]; then
+mkdir -p "/sdcard/#INDRA/Logs"
+fi
+
 touch /data/media/0/#INDRA/Logs/reboot.log
 INDLOG="/data/media/0/#INDRA/Logs/reboot.log"
 exec 2>>"$INDLOG" 
@@ -25,25 +29,35 @@ READS() {
 }
 
 # Indra's Reboot Logs
-echo "##### INDRA - Reboot Logs #####" > "$INDLOG"
+echo "##### INDRA - Reboot Logs - [$(date)] #####" >> "$INDLOG"
 ind () {
     if [ "$1" = "Exclude" ]; then
       exec 2>/dev/null;
     else
       echo "" >> "$INDLOG"
-      echo "# $1 - [$(date)]" >> "$INDLOG"
+      echo "$1 - [$(date)]" >> "$INDLOG"
       exec 2>>"$INDLOG" 
     fi
 }
 
 # Write
 write() {
- [[ ! -f "$1" ]] && return 1
- chmod +w "$1" 2> /dev/null
- if ! echo "$2" > "$1"   2> /dev/null
- then
-  return 1  
- fi
+  if [[ ! -f "$1" ]]; then
+    ind "- $1 doesn't exist, skipping..."
+    return 1
+	fi
+  local curval=$(cat "$1" 2> /dev/null)
+  if [[ "$curval" == "$2" ]]; then
+    ind "- $1 is already set to $2, skipping..."
+	return 1
+  fi
+  chmod +w "$1" 2> /dev/null
+   if ! echo "$2" > "$1" 2> /dev/null
+   then
+     ind "× Failed: $1 -> $2"
+	 return 0
+   fi
+  ind "- $1 $curval -> $2"
 }
 
 # Execute Scripts
@@ -51,8 +65,8 @@ EXSC() {
     local script="$1"
     local comment="$2"
     chmod +x "$script"
+    ind "# $comment"
     . "$script"
-    ind "$comment"
 }
 
 # Start Executing Indra's Scripts 
@@ -81,7 +95,7 @@ YEAR=$(printf "%04d" $YEAR)
 
 # Latest Security Patch
 SP="${YEAR}-${MONTH}-05"
-ind "Updating Security Patch Level to $SP"
+ind "# Updating Security Patch Level to $SP"
 
 # Updates Security Patch
 sed -i "/ro.build.version.security_patch/s/.*/ro.build.version.security_patch=$SP/" "$MODPATH/system.prop"
@@ -89,7 +103,7 @@ sed -i "/ro.vendor.build.security_patch/s/.*/ro.vendor.build.security_patch=$SP/
 sed -i "/ro.build.version.real_security_patch/s/.*/ro.build.version.real_security_patch=$SP/" "$MODPATH/system.prop"
 
 # Ram Management Tweaks
-ind "Applying Ram Management Tweaks"
+ind "# Applying Ram Management Tweaks"
 write "/sys/module/lowmemorykiller/parameters/enable_adaptive_lmk" "0"
 write "/sys/module/lowmemorykiller/parameters/vmpressure_file_min" "33280"
 write "/sys/module/lowmemorykiller/parameters/minfree" "2048,4096,8192,16384,24576,32768"
@@ -100,7 +114,7 @@ write "/sys/module/lowmemorykiller/parameters/minfree" "2048,4096,8192,16384,245
         sleep 1
     done
 
-ind "Mobile Turned on, Applying Remaining Changes"
+ind "# Mobile Turned on, Applying Remaining Changes"
 if [ "$(READ "CSST" "$CFGC")" = "Enabled" ]; then
 CS="$(READ "CSDI" "$CFGC")"
 mkdir -p "$DB/Custom"
@@ -125,7 +139,8 @@ fi
 # Indra's Menu Logs
 touch /sdcard/#INDRA/Logs/menu.log
 INDMLOG="/sdcard/#INDRA/Logs/menu.log"
-echo "##### INDRA - Menu Logs #####" > "$INDMLOG"
+echo "##### INDRA - Menu Logs - [$(date)] #####" > "$INDMLOG"
+echo "" >> "$INDMLOG"
 echo "# Write 'su -c indra' in Termux to access menu" >> "$INDMLOG"
 if [ "$(READ "LOGS" "$CFGC")" = "Disabled" ]; then
 rm -rf /sdcard/#INDRA/Logs/*

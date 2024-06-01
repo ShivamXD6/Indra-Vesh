@@ -24,13 +24,13 @@ DB=/data/INDRA
 
 # INDRA LOGS
 ui_print " 📝 For logs - /sdcard/#INDRA/Logs"
-echo "##### INDRA - Installation Logs #####" > "$INDLOG"
+echo "##### INDRA - Installation Logs - [$(date)] #####" > "$INDLOG"
 ind () {
     if [ "$1" = "Exclude" ]; then
       exec 2>/dev/null;
     else
       echo "" >> "$INDLOG"
-      echo "# $1 - [$(date)]" >> "$INDLOG"
+      echo "$1 - [$(date)]" >> "$INDLOG"
       exec 2>>"$INDLOG" 
       ui_print "$1"
       ui_print ""
@@ -111,6 +111,7 @@ sed -i "/ro.build.version.real_security_patch/s/.*/ro.build.version.real_securit
 
 # Permissions and Cleanup
 chmod 755 "$MODPATH/service.sh"
+chmod 755 "$MODPATH/post-fs-data.sh"
 rm -rf $MODPATH/INDRA
 rm -rf /data/INDRA/Configs/old-blc.txt
 

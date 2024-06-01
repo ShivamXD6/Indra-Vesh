@@ -1,7 +1,7 @@
 BLID1=NET
 BLN1=Network Enhancement
 BLS1=ON
-BLL1=https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/Portal/BLScripts/NET.sh
+BLL1=https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/INDRA/BLScripts/NET.sh
 
 BLID2=DT2W
 BLN2=Double Tap To Wake

@@ -38,7 +38,7 @@ Menu() {
     fi
     
     if [ ! "$local_size" -eq "0" ]; then
-   ind "Opening $name"
+   ind "# Opening $name"
    . $CFSRT/$id.sh
       fi
    fi
