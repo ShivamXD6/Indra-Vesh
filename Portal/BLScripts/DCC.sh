@@ -1,7 +1,7 @@
 # Display Colors Control
 
 # Config File
-DCC_DIR=/data/INDRA/Configs/dcc.txt
+DCC_DIR=/data/INDRA/Configs/cfc.txt
 
 # Check if KCAL Supported or not
 if [ -d "/sys/module/msm_drm/parameters/" ]; then
@@ -9,6 +9,8 @@ if [ -d "/sys/module/msm_drm/parameters/" ]; then
     elif [ -d "/sys/devices/platform/kcal_ctrl.0" ]; then
     kcal_d="/sys/devices/platform/kcal_ctrl.0"
    write "/sys/devices/platform/kcal_ctrl.0/kcal_enable" "1"
+   else
+   ind " ✖ KCAL is Not Supported, tell kernel dev to add support for KCAL" & sleep 3
 fi
 
 # Default Values

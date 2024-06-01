@@ -9,8 +9,8 @@ Menu() {
     indc "${Y}✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
     indc "${W} ❐ [1] Custom Script ${G}["$(READ "CSST"  "$CFGC")"] ${N}"
     indc "${W} ❐ [2] Change Custom Script Directory ${N}"
-    indc "${G} Current Script Directory = "$(READ "CSDI" "$CFGC")" ${N}"
     indc "${W} ❐ [3] Logs ${G}["$(READ "LOGS" "$CFGC")"] ${N}"
+    indc "${W} ❐ [4] Minimal BootLoop Saver ${G}["$(READ "BTLOOP" "$CFGC")"] ${N}"
     indc "${R} ✖ [0] Return to Indra's Menu ${N}"
     indc "${R} ✖ [+] Exit Directly ${N}"
     indc "${Y}✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
@@ -20,6 +20,7 @@ Menu() {
         1) Option1 ;;
         2) Option2 ;;
         3) Option3 ;;
+        4) Option4 ;;
         0) Return ;;
         +) GoOut ;;
         *) Menu ;;
@@ -68,6 +69,16 @@ Option3 () {
       sed -i "0,/LOGS/ s/LOGS=.*/LOGS=Disabled/" "$CFGC"
       else
       sed -i "0,/LOGS/ s/LOGS=.*/LOGS=Enabled/" "$CFGC"
+    fi
+Menu
+}
+
+Option4 () {
+    printf "\033c" 
+    if [ "$(READ "BTLOOP" "$CFGC")" = "Enabled" ]; then
+      sed -i "0,/BTLOOP/ s/BTLOOP=.*/BTLOOP=Disabled/" "$CFGC"
+      else
+      sed -i "0,/BTLOOP/ s/BTLOOP=.*/BTLOOP=Enabled/" "$CFGC"
     fi
 Menu
 }
