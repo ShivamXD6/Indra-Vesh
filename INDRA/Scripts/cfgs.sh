@@ -67,6 +67,7 @@ Option3 () {
     printf "\033c" 
     if [ "$(READ "LOGS" "$CFGC")" = "Enabled" ]; then
       sed -i "0,/LOGS/ s/LOGS=.*/LOGS=Disabled/" "$CFGC"
+      rm -rf /sdcard/#INDRA/Logs/*
       else
       sed -i "0,/LOGS/ s/LOGS=.*/LOGS=Enabled/" "$CFGC"
     fi

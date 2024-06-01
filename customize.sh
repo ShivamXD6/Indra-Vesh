@@ -18,7 +18,7 @@ fi
 # Defines & Functions
 if [ -f "/data/INDRA/Configs/blc.txt" ]; then
   mv "/data/INDRA/Configs/blc.txt" "/data/INDRA/Configs/old-blc.txt"
-fi 
+fi
 cp -af "$MODPATH/INDRA" "/data"
 DB=/data/INDRA
 

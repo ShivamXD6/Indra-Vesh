@@ -1,8 +1,8 @@
 #!/system/bin/sh
 
-touch /data/media/0/#INDRA/Logs/reboot.log
-INDLOG="/data/media/0/#INDRA/Logs/reboot.log"
-exec 2>>"$INDLOG"
+touch /data/INDRA/reboot.log
+INDLOG="/data/INDRA/reboot.log"
+exec 2> >(tee -ai $INDLOG >/dev/null)
 
 # Defines
 DB=/data/INDRA
@@ -20,13 +20,13 @@ READ() {
 # Indra's Reboot Logs
 echo "##### INDRA - Post Reboot Logs - [$(date)] #####" > "$INDLOG"
 ind () {
-    if [ "$1" = "Exclude" ]; then
-      exec 2>/dev/null;
-    else
+      if [ "$1" = "Exclude" ]; then
+      echo "" >> /dev/null;
+      else
       echo "" >> "$INDLOG"
       echo "$1 - [$(date)]" >> "$INDLOG"
-      exec 2>>"$INDLOG" 
-    fi
+      exec 2> >(tee -ai $INDLOG >/dev/null)
+      fi
 }
 
 if [ "$(READ "BLS1" $BLC)" = "ON" ]; then

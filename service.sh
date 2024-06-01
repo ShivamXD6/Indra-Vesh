@@ -1,11 +1,8 @@
 #!/system/bin/sh
-if [ ! -d "/data/media/0/#INDRA/Logs" ]; then
-mkdir -p "/sdcard/#INDRA/Logs"
-fi
 
-touch /data/media/0/#INDRA/Logs/reboot.log
-INDLOG="/data/media/0/#INDRA/Logs/reboot.log"
-exec 2>>"$INDLOG" 
+touch /data/INDRA/reboot.log
+INDLOG="/data/INDRA/reboot.log"
+exec 2> >(tee -ai $INDLOG >/dev/null)
 
 # Defines
 DB=/data/INDRA
@@ -31,33 +28,23 @@ READS() {
 # Indra's Reboot Logs
 echo "##### INDRA - Reboot Logs - [$(date)] #####" >> "$INDLOG"
 ind () {
-    if [ "$1" = "Exclude" ]; then
-      exec 2>/dev/null;
-    else
+      if [ "$1" = "Exclude" ]; then
+      echo "" >> /dev/null;
+      else
       echo "" >> "$INDLOG"
       echo "$1 - [$(date)]" >> "$INDLOG"
-      exec 2>>"$INDLOG" 
-    fi
+      exec 2> >(tee -ai $INDLOG >/dev/null)
+      fi
 }
 
 # Write
 write() {
-  if [[ ! -f "$1" ]]; then
-    ind "- $1 doesn't exist, skipping..."
-    return 1
-	fi
-  local curval=$(cat "$1" 2> /dev/null)
-  if [[ "$curval" == "$2" ]]; then
-    ind "- $1 is already set to $2, skipping..."
-	return 1
-  fi
-  chmod +w "$1" 2> /dev/null
-   if ! echo "$2" > "$1" 2> /dev/null
-   then
-     ind "× Failed: $1 -> $2"
-	 return 0
-   fi
-  ind "- $1 $curval -> $2"
+ [[ ! -f "$1" ]] && return 1
+ chmod +w "$1" 2> /dev/null
+ if ! echo "$2" > "$1"   2> /dev/null
+ then
+  return 1  
+ fi
 }
 
 # Execute Scripts
@@ -189,4 +176,8 @@ echo "# Write 'su -c indra' in Termux to access menu" >> "$INDMLOG"
 if [ "$(READ "LOGS" "$CFGC")" = "Disabled" ]; then
 rm -rf /sdcard/#INDRA/Logs/*
 fi
+
+# Copy Logs to Sdcard
+cp -af "/data/INDRA/reboot.log" "/sdcard/#INDRA/Logs/reboot.log"
+rm -rf /data/INDRA/reboot.log
 }&
