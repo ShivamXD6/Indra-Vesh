@@ -56,50 +56,6 @@ EXSC() {
     . "$script"
 }
 
-if [ "$(READ "BTLOOP" "$CFGC")" = "Enabled" ]; then
-# Check for Bootloop
-# Credit - HuskyDG
-ind "# Checking for Bootloop"
-disable_modules(){
-   ind " - Bootloop Detected, Disabling Modules"
-   list="$(find /data/adb/modules/* -prune -type d)"
-   for module in $list
-   do
-      touch $module/disable
-   done
-   ind " - Disabled all modules Including Myself :)"
-   rm -rf /cache/.system_booting /data/unencrypted/.system_booting /metadata/.system_booting /persist/.system_booting /mnt/vendor/persist/.system_booting
-   ind " - Rebooting Now"
-   reboot
-   exit
-}
-
-# Gather Process IDs & Disable Modules if zygote not started or PID didn't match
-sleep 15
-ZYGOTE_PID1=$(getprop init.svc_debug_pid.zygote)
-sleep 15
-ZYGOTE_PID2=$(getprop init.svc_debug_pid.zygote)
-sleep 15
-ZYGOTE_PID3=$(getprop init.svc_debug_pid.zygote)
-if [ -z "$ZYGOTE_PID1" ]
-then
-   ind " - Zygote didn't start? Disabling Modules"
-   disable_modules
-fi
-if [ "$ZYGOTE_PID1" != "$ZYGOTE_PID2" -o "$ZYGOTE_PID2" != "$ZYGOTE_PID3" ]
-then
-   ind " - PID mismatch, checking again $ZYGOTE_PID1 ≠ $ZYGOTE_PID2 ≠ $ZYGOTE_PID3"   
-   sleep 10
-   ZYGOTE_PID4=$(getprop init.svc_debug_pid.zygote)
-   if [ "$ZYGOTE_PID3" != "$ZYGOTE_PID4" ]
-   then
-      ind " - Still Process ID not matched $ZYGOTE_PID3 ≠ $ZYGOTE_PID4..."
-      disable_modules
-   fi
-fi
-ind "# No Bootloop Found :)"
-fi
-
 # Start Executing Indra's Scripts 
 cnt=1
 while :; do
@@ -144,6 +100,51 @@ ind "# Applying Ram Management Tweaks"
 write "/sys/module/lowmemorykiller/parameters/enable_adaptive_lmk" "0"
 write "/sys/module/lowmemorykiller/parameters/vmpressure_file_min" "33280"
 write "/sys/module/lowmemorykiller/parameters/minfree" "2048,4096,8192,16384,24576,32768"
+
+
+if [ "$(READ "BTLOOP" "$CFGC")" = "Enabled" ]; then
+# Check for Bootloop
+# Credit - HuskyDG
+ind "# Checking for Bootloop"
+disable_modules(){
+   ind " - Bootloop Detected, Disabling Modules"
+   list="$(find /data/adb/modules/* -prune -type d)"
+   for module in $list
+   do
+      touch $module/disable
+   done
+   ind " - Disabled all modules Including Myself :)"
+   rm -rf /cache/.system_booting /data/unencrypted/.system_booting /metadata/.system_booting /persist/.system_booting /mnt/vendor/persist/.system_booting
+   ind " - Rebooting Now"
+   reboot
+   exit
+}
+
+# Gather Process IDs & Disable Modules if zygote not started or PID didn't match
+sleep 10
+ZYGOTE_PID1=$(getprop init.svc_debug_pid.zygote)
+sleep 10
+ZYGOTE_PID2=$(getprop init.svc_debug_pid.zygote)
+sleep 10
+ZYGOTE_PID3=$(getprop init.svc_debug_pid.zygote)
+if [ -z "$ZYGOTE_PID1" ]
+then
+   ind " - Zygote didn't start? Disabling Modules"
+   disable_modules
+fi
+if [ "$ZYGOTE_PID1" != "$ZYGOTE_PID2" -o "$ZYGOTE_PID2" != "$ZYGOTE_PID3" ]
+then
+   ind " - PID mismatch, checking again $ZYGOTE_PID1 ≠ $ZYGOTE_PID2 ≠ $ZYGOTE_PID3"   
+   sleep 10
+   ZYGOTE_PID4=$(getprop init.svc_debug_pid.zygote)
+   if [ "$ZYGOTE_PID3" != "$ZYGOTE_PID4" ]
+   then
+      ind " - Still Process ID not matched $ZYGOTE_PID3 ≠ $ZYGOTE_PID4..."
+      disable_modules
+   fi
+fi
+ind "# No Bootloop Found :)"
+fi
 
 # After Boot Complete 
 {
