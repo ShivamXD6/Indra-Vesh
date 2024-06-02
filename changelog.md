@@ -1,3 +1,7 @@
+# Dhananjay HotFix - Wealth Conqueror
+## Changelogs - 2 June 2024:
+1. Fixed Updater (Minor issues)
+
 # Dhananjay - Wealth Conqueror
 ## Changelogs - 2 June 2024:
 1. Added Bootloop Saver by HuskyDG

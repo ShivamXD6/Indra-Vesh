@@ -22,6 +22,7 @@ indc "${G} ✶ Press Enter to proceed update ${N}"
 indc "${G} ✶ Type Anything and Press Enter to abort the update ${N}"
 read INP
 if [ -n "$INP" ]; then
+mv "$CONF/old-upc.txt" "$CONF/upc.txt"
 indra 
 exit
 fi
@@ -33,8 +34,6 @@ Download "https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/INDRA/Scrip
 indc "${G} Updated Updater Menu
  ${Y} Version: "$(READ "UPDA-V" "$OLDUPC")" -> "$(READ "UPDA-V" "$UPC")" ${N}"
 sleep 2
-indra
-exit
 fi
 
 # Check for Module Core Updates

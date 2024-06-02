@@ -8,9 +8,6 @@ touch "/sdcard/#INDRA/Logs/menu.log"
 INDLOG="/sdcard/#INDRA/Logs/menu.log"
 exec 2>>"$INDLOG"
 
-# Reset Menu Logs 
-echo "##### INDRA - Menu Logs - [$(date)] #####" > "$INDLOG"
-
 # Read Files (Without Space)
 READ() {
   value=$(sed -e '/^[[:blank:]]*#/d;s/[\t\n\r ]//g;/^$/d' "$2" | grep -m 1 "^$1=" | cut -d'=' -f 2)
