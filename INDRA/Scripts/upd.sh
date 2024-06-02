@@ -8,7 +8,7 @@ Download "https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/INDRA/Confi
 
 # Get Each Changelog of the Update
 cnt=1
-indc "${V} ✶ CHANGELOGS ✶ ${N}"
+indc "${V} ✶ CHANGELOGS - $(READS "DATE" "$UPC") ✶ ${N}"
 while true; do
 CHNG=$(READS "CHNG$cnt" "$UPC")
 if [ -z "$CHNG" ]; then

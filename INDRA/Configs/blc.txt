@@ -10,5 +10,10 @@ BLL2=https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/Portal/BLScripts
 
 BLID3=DCC
 BLN3=Display Colors Control
-BLS3=ON
+BLS3=OFF
 BLL3=https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/Portal/BLScripts/DCC.sh
+
+BLID4=SYSH
+BLN4=Systemless Host
+BLS4=OFF
+BLL4=https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/Portal/BLScripts/SYSH.sh

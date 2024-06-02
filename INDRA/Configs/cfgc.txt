@@ -1,4 +1,4 @@
 CSST=Enabled
 CSDI=/sdcard/#INDRA
 LOGS=Enabled
-BTLOOP=Enabled
+BTLOOP=Disabled
