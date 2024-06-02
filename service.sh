@@ -56,15 +56,6 @@ EXSC() {
     . "$script"
 }
 
-# Start Mounting Systemless Hosts for KSU/APatch
-# Credit - Symbuzzer
-if [ "$(READ "SYSHOST" "$CFGC")" = "Enabled" ]; then
-if [ ! -d "/data/adb/magisk" ]; then
-ind "# Mounting Systemless Hosts"
-mount -t overlay -o lowerdir=/system/etc,upperdir=/data/INDRA/system/etc,workdir=/data/INDRA/worker SYSHOST /system/etc
-fi
-fi
-
 # Start Executing Indra's Scripts 
 cnt=1
 for file in "$SRT"/*.sh; do
