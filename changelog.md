@@ -1,6 +1,8 @@
 # Dhananjay HotFix - Wealth Conqueror
 ## Changelogs - 2 June 2024:
 1. Fixed Updater (Minor issues)
+2. Fixed Toggle Menu Logs
+3. Fixed Resetting of Menu Logs
 
 # Dhananjay - Wealth Conqueror
 ## Changelogs - 2 June 2024:
