@@ -6,7 +6,9 @@
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/FlaxCube/Indra-Vesh/total?style=for-the-badge&logo=github&logoColor=black&label=Indra-Vesh%20Users&labelColor=lightblue&color=blue)](https://github.com/FlaxCube/Indra-Vesh/releases)
 
 
-# ⚡Indra Vesh Magisk Module 
+# ⚡Indra Vesh Magisk Module - [Discontinued]
+
+- Discontinued Because I cannot handle that alone also have some personal reasons...
 
 - Indra Vesh is a powerful Magisk module inspired by Lord Indra. Where "Vesh" means disguise. 
 - The Power of Lord Indra are being disguised in this module to unleash the true potential of your Android device by enhancing performance, managing system resources efficiently, and providing a suite of customizable tweaks.
