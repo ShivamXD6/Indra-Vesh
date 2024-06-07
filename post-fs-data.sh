@@ -1,5 +1,4 @@
 #!/system/bin/sh
-
 touch /data/INDRA/reboot.log
 INDLOG="/data/INDRA/reboot.log"
 exec 2> >(tee -ai $INDLOG >/dev/null)
@@ -28,10 +27,5 @@ ind () {
       exec 2> >(tee -ai $INDLOG >/dev/null)
       fi
 }
-
-if [ "$(READ "BLS1" $BLC)" = "ON" ]; then
-ind "# Applying Network Enhancements Tweaks by rawe_etc"
-sysctl -p "$DB/sysctl.conf"
-fi
 
 echo "" >> "$INDLOG"

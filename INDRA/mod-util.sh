@@ -1,21 +1,21 @@
 #!/system/bin/sh
 
+# Create logs dir if doesn't exist
 if [ ! -d "/sdcard/#INDRA/Logs" ]; then
 mkdir -p "/sdcard/#INDRA/Logs"
-fi
-
 touch "/sdcard/#INDRA/Logs/menu.log"
+fi
 INDLOG="/sdcard/#INDRA/Logs/menu.log"
 exec 2>>"$INDLOG"
 
-# Read Files (Without Space)
+# READ <property> <file>
 READ() {
   value=$(sed -e '/^[[:blank:]]*#/d;s/[\t\n\r ]//g;/^$/d' "$2" | grep -m 1 "^$1=" | cut -d'=' -f 2)
   echo "$value"
   return $?
 }
 
-# Read Files (With Space)
+# READS <property> <file>
 READS() {
   value=$(grep -m 1 "^$1=" "$2" | sed 's/^.*=//')
   echo "${value//[[:space:]]/ }"
@@ -40,7 +40,7 @@ indc () {
   fi
 }
 
-# Write Function
+# write <file> <value> 
 write() {
   if [[ ! -f "$1" ]]; then
     ind "- $1 doesn't exist, skipping..."
@@ -58,6 +58,28 @@ write() {
 	 return 0
    fi
   ind "- $1 $curval -> $2"
+}
+
+# SET <property> <value> <file>
+SET() {
+  if [[ -f "$3" ]]; then
+    if grep -q "$1=" "$3"; then
+      sed -i "0,/^$1=/s|^$1=.*|$1=$2|" "$3"
+      ind " - Setting $1 -> $2 in $3"
+    else
+      echo "$1=$2" >> "$3"
+      ind " - Adding Variable $1=$2 in $3"
+    fi
+  fi
+}
+
+# Grep prop
+grep_prop() {
+  local REGEX="s/^$1=//p"
+  shift
+  local FILES=$@
+  [[ -z "$FILES" ]] && FILES='/system/build.prop'
+  sed -n "$REGEX" $FILES 2>/dev/null | head -n 1
 }
 
 # Defines Directories 
@@ -91,60 +113,11 @@ else
 fi
 [[ -z "$isABDevice" ]] && { echo " ❌ Something went wrong"; exit 1; }
 
-# Set perm
-set_perm() {
-  chown "$2":"$3" "$1" || return 1
-  chmod "$4" "$1" || return 1
-  (if [[ -z "$5" ]]; then
-    case $1 in
-      *"system/vendor/app/"*) chcon 'u:object_r:vendor_app_file:s0' "$1";;
-      *"system/vendor/etc/"*) chcon 'u:object_r:vendor_configs_file:s0' "$1";;
-      *"system/vendor/overlay/"*) chcon 'u:object_r:vendor_overlay_file:s0' "$1";;
-      *"system/vendor/"*) chcon 'u:object_r:vendor_file:s0' "$1";;
-      *) chcon 'u:object_r:system_file:s0' "$1";;
-    esac
-  else
-    chcon "$5" "$1"
-  fi) || return 1
-}
-
-# Set perm recursive
-set_perm_recursive() {
-  find "$1" -type d 2>/dev/null | while read dir; do
-    set_perm "$dir" "$2" "$3" "$4" "$6"
-  done
-  find "$1" -type f -o -type l 2>/dev/null | while read file; do
-    set_perm "$file" "$2" "$3" "$5" "$6"
-  done
-}
-
-# Mktouch
+# mktouch <file> <content of the file>
 mktouch() {
   mkdir -p "${1%/*}" 2>/dev/null
   [[ -z $2 ]] && touch "$1" || echo "$2" > "$1"
   chmod 644 "$1"
-}
-
-# Grep prop
-grep_prop() {
-  local REGEX="s/^$1=//p"
-  shift
-  local FILES=$@
-  [[ -z "$FILES" ]] && FILES='/system/build.prop'
-  sed -n "$REGEX" $FILES 2>/dev/null | head -n 1
-}
-
-# Is mounted
-is_mounted() {
-  grep -q " $(readlink -f "$1") " /proc/mounts 2>/dev/null
-  return $?
-}
-
-
-# Abort
-abort() {
-  echo "$1"
-  exit 1
 }
 
 # Device Info
@@ -187,34 +160,6 @@ loadBar=' '			# Load UI
 [[ -n "$1" ]] && [[ "$1" = "-nc" ]] && shift && NC=true
 [[ "$NC" ]] || [[ -n "$ANDROID_SOCKET_adbd" ]] && {
   G=''; R=''; Y=''; B=''; V=''; Bl=''; C=''; W=''; N=''; BGBL=''; loadBar='=';
-}
-
-# No. of characters in $MODTITLE, $VER, and $REL
-character_no=$(echo "$MODTITLE $VER $REL" | wc -c)
-
-# Divider
-div="${Bl}$(printf '%*s' "${character_no}" '' | tr " " "=")${N}"
-
-# title_div [-c] <title>
-# based on $div with <title>
-title_div() {
-  [[ "$1" = "-c" ]] && local character_no=$2 && shift 2
-  [[ -z "$1" ]] && { local message=; no=0; } || { local message="$@ "; local no=$(echo "$@" | wc -c); }
-  [[ $character_no -gt $no ]] && local extdiv=$((character_no-no)) || { echo "Invalid!"; return 1; }
-  echo "${W}$message${N}${Bl}$(printf '%*s' "$extdiv" '' | tr " " "=")${N}"
-}
-
-# set_file_prop <property> <value> <prop.file>
-set_file_prop() {
-  if [[ -f "$3" ]]; then
-    if grep -q "$1=" "$3"; then
-      sed -i "s/${1}=.*/${1}=${2}/g" "$3"
-    else
-      echo "$1=$2" >> "$3"
-    fi
-  else
-    echo "- $3 doesn't exist"; return 1
-  fi
 }
 
 # Check which Rooting Tool were used to Root Mobile
@@ -293,7 +238,7 @@ local value=$2
 local file=$3
 local id=$4
 local name=$5
-sed -i "/$value/s/.*/$value=$bool/" $file
+SET "$value" "$bool" "$file"
 ind "# Turning $bool $name"
-source $BLSRT/$id.sh
+source "$BLSRT/$id.sh"
 }

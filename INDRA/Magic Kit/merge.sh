@@ -9,7 +9,7 @@ cp -af "$MERGE/customize.sh" "$MODPACK"
 # Download zip bin if not found
 zip_size=$(stat -c %s "$DB/zip")
 if [ "$local_size" -eq "0" ]; then
-Download "https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/Portal/zip" "$DB/zip"
+Download "https://raw.githubusercontent.com/ShivamXD6/Indra-Vesh/main/Portal/zip" "$DB/zip"
 chmod +x "$DB/zip"
 clear
 fi
@@ -19,10 +19,10 @@ indc "${G} ✪ Give a name to your Module Pack ${N}"
 read NAME
 
 if [ -z "$NAME" ]; then
-sed -i "/name/s/.*/name=Module-Pack/" "$MODPACK/module.prop"
+SET "name" "Module-Pack" "$MODPACK/module.prop"
 setprop MPName Module-Pack
 else
-sed -i "/name/s/.*/name=$NAME/" "$MODPACK/module.prop"
+SET "name" "$NAME" "$MODPACK/module.prop"
 setprop MPName "$NAME"
 fi
 
@@ -65,7 +65,7 @@ sleep 1
     fi
 cnt=$((cnt + 1))
 done
-sed -i "0,/INSTYP/ s/INSTYP=.*/INSTYP=QUICK/" "$MODPACK/customize.sh"
+SET "INSTYP" "QUICK" "$MODPACK/customize.sh"
 cd "$MODPACK"
 $DB/zip -r "/sdcard/#INDRA/$(READ "name" "$MODPACK"/module.prop).zip" . >> /dev/null;
 indc "${C} ✪ Creation of $(READ "name" "$MODPACK"/module.prop) Module Pack Completed ✔ ${N}"
@@ -107,7 +107,7 @@ sleep 1
 fi
 cnt=$((cnt + 1))
 done
-sed -i "0,/INSTYP/ s/INSTYP=.*/INSTYP=ADVANCE/" "$MODPACK/customize.sh"
+SET "INSTYP" "ADVANCE" "$MODPACK/customize.sh"
 cd "$MODPACK"
 $DB/zip -r "/sdcard/#INDRA/$(getprop MPName).zip" . >> /dev/null;
 indc "${C} ✪ Creation of $(getprop MPName) Module Pack Completed ✔ ${N}"
@@ -124,7 +124,7 @@ Menu
 Option3() {
 indc "${G} ✪ Give a name to your Module Pack ${N}"
 read NAME
-sed -i "/name/s/.*/name=$NAME/" "$MODPACK/module.prop"
+SET "name" "$NAME" "$MODPACK/module.prop"
 setprop MPName "$NAME"
 Menu
 }

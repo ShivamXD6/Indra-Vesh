@@ -1,6 +1,6 @@
 ![Indra Vesh Banner](https://imgur.com/B6CTkgK.png)
 
-[![Static Badge](https://img.shields.io/badge/Download-Version%3A%20Dhananjay-brightgreen?style=for-the-badge)](https://github.com/FlaxCube/Indra-Vesh/releases) &nbsp;
+[![Static Badge](https://img.shields.io/badge/Download-Version%3A%20Soma-brightgreen?style=for-the-badge)](https://github.com/FlaxCube/Indra-Vesh/releases) &nbsp;
 [![Static Badge](https://img.shields.io/badge/Telegram%20%7C%20Support-skyblue?style=for-the-badge&logo=telegram)](https://t.me/rmx_3_pro) &nbsp;
 [![Static Badge](https://img.shields.io/badge/Discord%20%7C%20Support-9283ff?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/cZewFPXb2Z) &nbsp;
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/FlaxCube/Indra-Vesh/total?style=for-the-badge&logo=github&logoColor=black&label=Indra-Vesh%20Users&labelColor=lightblue&color=blue)](https://github.com/FlaxCube/Indra-Vesh/releases)

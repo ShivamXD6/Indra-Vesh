@@ -90,7 +90,7 @@ while [ "$CUS" -lt "130" ] || [ "$CUS" -ge "380" ]; do
     read CUS
 done
 CONT=$CUS
-sed -i "/CONT/s/.*/CONT=$CONT/" "$DCC_DIR"
+SET "CONT" "$CONT" "$DCC_DIR"
 SetColors
 fi
 
@@ -102,7 +102,7 @@ while [ "$CUS" -lt "0" ] || [ "$CUS" -ge "380" ]; do
     read CUS
 done
 HUE=$CUS
-sed -i "/HUE/s/.*/HUE=$HUE/" "$DCC_DIR"
+SET "HUE" "$HUE" "$DCC_DIR"
 SetColors
 fi
 
@@ -114,7 +114,7 @@ while [ "$CUS" -lt "130" ] || [ "$CUS" -ge "380" ]; do
     read CUS
 done
 SAT=$CUS
-sed -i "/SAT/s/.*/SAT=$SAT/" "$DCC_DIR"
+SET "SAT" "$SAT" "$DCC_DIR"
 SetColors
 fi
 
@@ -126,7 +126,7 @@ while [ "$CUS" -lt "130" ] || [ "$CUS" -ge "380" ]; do
     read CUS
 done
 VAL=$CUS
-sed -i "/VAL/s/.*/VAL=$VAL/" "$DCC_DIR"
+SET "VAL" "$VAL" "$DCC_DIR"
 SetColors
 fi
 
@@ -138,7 +138,7 @@ while [ "$CUS" -lt "70" ] || [ "$CUS" -ge "256" ]; do
     read CUS
 done
 RED=$CUS
-sed -i "/RED/s/.*/RED=$RED/" "$DCC_DIR"
+SET "RED" "$RED" "$DCC_DIR"
 SetColors
 fi
 
@@ -150,7 +150,7 @@ while [ "$CUS" -lt "70" ] || [ "$CUS" -ge "256" ]; do
     read CUS
 done
 GREEN=$CUS
-sed -i "/GREEN/s/.*/GREEN=$GREEN/" "$DCC_DIR"
+SET "GREEN" "$GREEN" "$DCC_DIR"
 SetColors
 fi
 
@@ -162,7 +162,7 @@ while [ "$CUS" -lt "70" ] || [ "$CUS" -ge "256" ]; do
     read CUS
 done
 BLUE=$CUS
-sed -i "/BLUE/s/.*/BLUE=$BLUE/" "$DCC_DIR"
+SET "BLUE" "$BLUE" "$DCC_DIR"
 SetColors
 fi
 
@@ -171,13 +171,13 @@ Menu
 
 Option1 () {
 Default
-sed -i "/CONT/s/.*/CONT=$CONT/" "$DCC_DIR"
-sed -i "/HUE/s/.*/HUE=$HUE/" "$DCC_DIR"
-sed -i "/SAT/s/.*/SAT=$SAT/" "$DCC_DIR"
-sed -i "/VAL/s/.*/VAL=$VAL/" "$DCC_DIR"
-sed -i "/RED/s/.*/RED=$RED/" "$DCC_DIR"
-sed -i "/GREEN/s/.*/GREEN=$GREEN/" "$DCC_DIR"
-sed -i "/BLUE/s/.*/BLUE=$BLUE/" "$DCC_DIR"
+SET "CONT" "$CONT" "$DCC_DIR"
+SET "HUE" "$HUE" "$DCC_DIR"
+SET "SAT" "$SAT" "$DCC_DIR"
+SET "VAL" "$VAL" "$DCC_DIR"
+SET "RED" "$RED" "$DCC_DIR"
+SET "GREEN" "$GREEN" "$DCC_DIR"
+SET "BLUE" "$BLUE" "$DCC_DIR"
 SetColors
 Menu
 }
@@ -186,8 +186,8 @@ Option2 () {
 Default
 CONT=262
 SAT=272
-sed -i "/CONT/s/.*/CONT=$CONT/" "$DCC_DIR"
-sed -i "/SAT/s/.*/SAT=$SAT/" "$DCC_DIR"
+SET "CONT" "$CONT" "$DCC_DIR"
+SET "SAT" "$SAT" "$DCC_DIR"
 SetColors
 Menu
 }
@@ -200,13 +200,13 @@ VAL=245
 RED=250
 GREEN=250
 BLUE=250
-sed -i "/CONT/s/.*/CONT=$CONT/" "$DCC_DIR"
-sed -i "/HUE/s/.*/HUE=$HUE/" "$DCC_DIR"
-sed -i "/SAT/s/.*/SAT=$SAT/" "$DCC_DIR"
-sed -i "/VAL/s/.*/VAL=$VAL/" "$DCC_DIR"
-sed -i "/RED/s/.*/RED=$RED/" "$DCC_DIR"
-sed -i "/GREEN/s/.*/GREEN=$GREEN/" "$DCC_DIR"
-sed -i "/BLUE/s/.*/BLUE=$BLUE/" "$DCC_DIR"
+SET "CONT" "$CONT" "$DCC_DIR"
+SET "HUE" "$HUE" "$DCC_DIR"
+SET "SAT" "$SAT" "$DCC_DIR"
+SET "VAL" "$VAL" "$DCC_DIR"
+SET "RED" "$RED" "$DCC_DIR"
+SET "GREEN" "$GREEN" "$DCC_DIR"
+SET "BLUE" "$BLUE" "$DCC_DIR"
 SetColors
 Menu
 } 
@@ -216,9 +216,9 @@ Default
 RED=256
 GREEN=156
 BLUE=100
-sed -i "/RED/s/.*/RED=$RED/" "$DCC_DIR"
-sed -i "/GREEN/s/.*/GREEN=$GREEN/" "$DCC_DIR"
-sed -i "/BLUE/s/.*/BLUE=$BLUE/" "$DCC_DIR"
+SET "RED" "$RED" "$DCC_DIR"
+SET "GREEN" "$GREEN" "$DCC_DIR"
+SET "BLUE" "$BLUE" "$DCC_DIR"
 SetColors
 Menu
 }

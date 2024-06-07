@@ -1,5 +1,4 @@
 #!/system/bin/sh
-
 touch /data/INDRA/reboot.log
 INDLOG="/data/INDRA/reboot.log"
 exec 2> >(tee -ai $INDLOG >/dev/null)
@@ -11,19 +10,6 @@ CONF=$DB/Configs
 BLC=$CONF/blc.txt
 CFGC=$CONF/cfgc.txt
 MODPATH="${0%/*}"
-
-# Read Files (Without Space)
-READ() {
-  value=$(sed -e '/^[[:blank:]]*#/d;s/[\t\n\r ]//g;/^$/d' "$2" | grep -m 1 "^$1=" | cut -d'=' -f 2)
-  echo "$value"
-  return $?
-}
-
-# Read Files (With Space)
-READS() {
-  value=$(grep -m 1 "^$1=" "$2" | sed 's/^.*=//')
-  echo "${value//[[:space:]]/ }"
-}
 
 # Indra's Reboot Logs
 echo "##### INDRA - Reboot Logs - [$(date)] #####" >> "$INDLOG"
@@ -37,17 +23,53 @@ ind () {
       fi
 }
 
-# Write
-write() {
- [[ ! -f "$1" ]] && return 1
- chmod +w "$1" 2> /dev/null
- if ! echo "$2" > "$1"   2> /dev/null
- then
-  return 1  
- fi
+# READ <property> <file>
+READ() {
+  value=$(sed -e '/^[[:blank:]]*#/d;s/[\t\n\r ]//g;/^$/d' "$2" | grep -m 1 "^$1=" | cut -d'=' -f 2)
+  echo "$value"
+  return $?
 }
 
-# Execute Scripts
+# READS <property> <file>
+READS() {
+  value=$(grep -m 1 "^$1=" "$2" | sed 's/^.*=//')
+  echo "${value//[[:space:]]/ }"
+}
+
+# SET <property> <value> <file>
+SET() {
+  if [[ -f "$3" ]]; then
+    if grep -q "$1=" "$3"; then
+      sed -i "0,/^$1=/s|^$1=.*|$1=$2|" "$3"
+      ind " - Setting $1 -> $2 in $3"
+    else
+      echo "$1=$2" >> "$3"
+      ind " - Adding Variable $1=$2 in $3"
+    fi
+  fi
+}
+
+# write <file> <value> 
+write() {
+  if [[ ! -f "$1" ]]; then
+    ind "- $1 doesn't exist, skipping..."
+    return 1
+	fi
+  local curval=$(cat "$1" 2> /dev/null)
+  if [[ "$curval" == "$2" ]]; then
+    ind "- $1 is already set to $2, skipping..."
+	return 1
+  fi
+  chmod +w "$1" 2> /dev/null
+   if ! echo "$2" > "$1" 2> /dev/null
+   then
+     ind "× Failed: $1 -> $2"
+	 return 0
+   fi
+  ind "- $1 $curval -> $2"
+}
+
+# EXSC <script file> <comment to log> 
 EXSC() {
     local script="$1"
     local comment="$2"
@@ -85,15 +107,11 @@ if [ $NEXT_MONTH -gt 12 ]; then
 fi
 MONTH=$(printf "%02d" $NEXT_MONTH)
 YEAR=$(printf "%04d" $YEAR)
-
-# Latest Security Patch
 SP="${YEAR}-${MONTH}-05"
 ind "# Updating Security Patch Level to $SP"
-
-# Updates Security Patch
-sed -i "/ro.build.version.security_patch/s/.*/ro.build.version.security_patch=$SP/" "$MODPATH/system.prop"
-sed -i "/ro.vendor.build.security_patch/s/.*/ro.vendor.build.security_patch=$SP/" "$MODPATH/system.prop"
-sed -i "/ro.build.version.real_security_patch/s/.*/ro.build.version.real_security_patch=$SP/" "$MODPATH/system.prop"
+SET "ro.build.version.security_patch" "$SP" "$MODPATH/system.prop"
+SET "ro.vendor.build.security_patch" "$SP" "$MODPATH/system.prop"
+SET "ro.build.version.real_security_patch" "$SP" "$MODPATH/system.prop"
 
 # Ram Management Tweaks
 ind "# Applying Ram Management Tweaks"
@@ -101,10 +119,9 @@ write "/sys/module/lowmemorykiller/parameters/enable_adaptive_lmk" "0"
 write "/sys/module/lowmemorykiller/parameters/vmpressure_file_min" "33280"
 write "/sys/module/lowmemorykiller/parameters/minfree" "2048,4096,8192,16384,24576,32768"
 
-
 if [ "$(READ "BTLOOP" "$CFGC")" = "Enabled" ]; then
-# Check for Bootloop
 # Credit - HuskyDG
+# Bootloop Saver
 ind "# Checking for Bootloop"
 disable_modules(){
    ind " - Bootloop Detected, Disabling Modules"
@@ -120,7 +137,6 @@ disable_modules(){
    exit
 }
 
-# Gather Process IDs & Disable Modules if zygote not started or PID didn't match
 sleep 10
 ZYGOTE_PID1=$(getprop init.svc_debug_pid.zygote)
 sleep 10

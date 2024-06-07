@@ -1,3 +1,14 @@
+# Soma - Nectar Of Immortality
+## Changelogs - 7 June 2024:
+1. Reverted Network Tweaks.
+2. Turned on Syn Cookies to protect device from DoS attacks.
+3. Updated Updater.
+4. Updated Logs System.
+5. Added Option to Clear Database in Configuration Menu.
+6. Allowing Service Based features to be added in your own module in Magic Kit Menu.
+7. Updated Base.
+8. Dropped Support for Older Versions of Indra-Vesh.
+
 # Dhananjay HotFix - Wealth Conqueror
 ## Changelogs - 2 June 2024:
 1. Fixed Updater (Minor issues)

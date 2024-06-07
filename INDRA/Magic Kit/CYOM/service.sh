@@ -12,6 +12,22 @@ READ() {
   return $?
 }
 
+# Nullified Indra's Logs if found any
+ind () {
+      echo "$1 - [$(date)]" >> /dev/null;
+}
+
+# SET <property> <value> <file>
+SET() {
+  if [[ -f "$3" ]]; then
+    if grep -q "$1=" "$3"; then
+      sed -i "0,/^$1=/s|^$1=.*|$1=$2|" "$3"
+    else
+      echo "$1=$2" >> "$3"
+    fi
+  fi
+}
+
 # Write
 write() {
  [[ ! -f "$1" ]] && return 1
@@ -35,3 +51,4 @@ for file in "$DB"/*.sh; do
     EXSC "$file"
     fi
 done
+

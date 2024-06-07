@@ -1,10 +1,10 @@
-DATE=2 June 2024
-CHNG1=Added Systemless Host in Toggle Control Menu by symbuzzer
-CHNG2=Fixed Toggle Control Logs
+CHNG1=7 June - Reverted Network Tweaks.
+CHNG2=7 June - Updated Logs System.
+CHNG3=7 June - Dropped Support for Older Versions of Indravesh.
 
-CORE-V=2
+CORE-V=1
 MENU-V=1
-TOGG-V=2
+TOGG-V=1
 TUNE-V=1
 MAGI-V=1
 CONF-V=1

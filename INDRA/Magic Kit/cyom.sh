@@ -69,7 +69,7 @@ sed -n "/$comment/,/^#/p" "$source_file" | sed -e "/$comment/d" -e '/^#/d' -e '/
 # Download zip bin if not found
 zip_size=$(stat -c %s "$DB/zip")
 if [ "$local_size" -eq "0" ]; then
-Download "https://raw.githubusercontent.com/FlaxCube/Indra-Vesh/main/Portal/zip" "$DB/zip"
+Download "https://raw.githubusercontent.com/ShivamXD6/Indra-Vesh/main/Portal/zip" "$DB/zip"
 chmod +x "$DB/zip"
 clear
 fi
@@ -95,19 +95,19 @@ if [ ! -f "$MOD/MetadataDone" ]; then
 cp "$CYOM/module.prop" "$MOD/module.prop"
 # Module Name
     InputMTDT "Enter Name for the Module"
-    sed -i "/name/s/.*/name=$INPUT/" "$MOD/module.prop"
+    SET "name" "$INPUT" "$MOD/module.prop"
     
 # Module Version
     InputMTDT "Enter Version for the Module"
-    sed -i "0,/version/ s/version=.*/version=$INPUT/" "$MOD/module.prop"
+    SET "version" "$INPUT" "$MOD/module.prop"
     
 # Module Author
     InputMTDT "Enter Author (Created By) For the Module"
-    sed -i "/author/s/.*/author=$INPUT/" "$MOD/module.prop"
+    SET "author" "$INPUT" "$MOD/module.prop"
     
 # Module Description 
     InputMTDT "Enter Description For the Module"
-    sed -i "/description/s/.*/description=$INPUT/" "$MOD/module.prop"
+    SET "description" "$INPUT" "$MOD/module.prop"
 
 printf "\033c"
  indc "${C} ✪ Part - [1/4] Module Metadata, Done ✔ ${N}"
@@ -264,6 +264,25 @@ done
 fi
 fi
 
+# Features Related to Services
+if [ ! -f "$MOD/CustomService" ]; then
+touch "$MOD/service.sh" 
+InputFEA "Do you want to Add Ram Management Tweaks?"
+if [ "$INPUT" -eq "1" ]; then
+Append "$MODPATH/service.sh" "$MOD/service.sh" "# Ram Management Tweaks"
+fi
+
+InputFEA "Do you want to Add Auto Security Patches Update?"
+if [ "$INPUT" -eq "1" ]; then
+Append "$MODPATH/service.sh" "$MOD/service.sh" "# Auto Security Patch Level"
+fi
+
+InputFEA "Do you want to Add Bootloop Saver?"
+if [ "$INPUT" -eq "1" ]; then
+Append "$MODPATH/service.sh" "$MOD/service.sh" "# Bootloop Saver"
+fi
+fi
+
 printf "\033c"
  indc "${C} ✪ Part - [3/4] Core Features of the Module , Done ✔ ${N}"
  indc "${C} ✪ Part - [3/4] Saving State Please Wait ✔ ${N}"
@@ -282,7 +301,7 @@ MBLC=/data/MAGICKIT/blc.txt
 while true; do
 name=$(READS "BLN$cnt" "$MBLC")
 status=$(READ "BLS$cnt" "$MBLC")
-sed -i "/BLS$cnt/s/.*/BLS$cnt=OFF/" "$MBLC"
+SET "BLS$cnt" "OFF" "$MBLC"
 if [ -z "$name" ]; then
 break 
 fi
@@ -318,7 +337,7 @@ while true; do
     
     if [ ! "$local_size" -eq "0" ]; then
    cp -af "$BLSRT/$id.sh" "$MDB/$id.sh"
-   sed -i "/BLS$option/s/.*/BLS$option=ON/" "$MBLC"
+   SET "BLS$option" "ON" "$MBLC"
    Menu
   break
 else

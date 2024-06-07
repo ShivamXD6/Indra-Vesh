@@ -11,6 +11,7 @@ Menu() {
     indc "${W} ❐ [2] Change Custom Script Directory ${N}"
     indc "${W} ❐ [3] Logs ${G}["$(READ "LOGS" "$CFGC")"] ${N}"
     indc "${W} ❐ [4] Minimal BootLoop Saver ${G}["$(READ "BTLOOP" "$CFGC")"] ${N}"
+    indc "${W} ❐ [5] Clear Database ${N}"
     indc "${R} ✖ [0] Return to Indra's Menu ${N}"
     indc "${R} ✖ [+] Exit Directly ${N}"
     indc "${Y}✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦✧✦ ${N}"
@@ -21,6 +22,7 @@ Menu() {
         2) Option2 ;;
         3) Option3 ;;
         4) Option4 ;;
+        5) Option5 ;;
         0) Return ;;
         +) GoOut ;;
         *) Menu ;;
@@ -30,9 +32,9 @@ Menu() {
 Option1 () {
     printf "\033c" 
     if [ "$(READ "CSST" "$CFGC")" = "Enabled" ]; then
-      sed -i "0,/CSST/ s/CSST=.*/CSST=Disabled/" "$CFGC"
+      SET "CSST" "Disabled" "$CFGC"
       else
-      sed -i "0,/CSST/ s/CSST=.*/CSST=Enabled/" "$CFGC"
+      SET "CSST" "Enabled" "$CFGC"
     fi
 Menu
 }
@@ -45,11 +47,11 @@ Option2 () {
     indc "${G} Leave Empty to set Default one ${N}"
     read DIR
   if [ -z "$DIR" ]; then
-    sed -i "0,/^CSDI=/s|^CSDI=.*|CSDI=/sdcard/#INDRA|" "$CFGC"
+    SET "CSDI" "/sdcard/#INDRA" "$CFGC"
    indc "${G} Changed Directory to = /sdcard/#INDRA${N}"
    sleep 2
   elif [ -d "$DIR" ]; then
-    sed -i "0,/^CSDI=/s|^CSDI=.*|CSDI=$DIR|" "$CFGC"
+    SET "CSDI" "$DIR" "$CFGC"
     indc "${G} Changed Directory to = $DIR${N}"
     sleep 2
     else
@@ -66,10 +68,10 @@ Menu
 Option3 () {
     printf "\033c" 
     if [ "$(READ "LOGS" "$CFGC")" = "Enabled" ]; then
-      sed -i "0,/LOGS/ s/LOGS=.*/LOGS=Disabled/" "$CFGC"
+      SET "LOGS" "Disabled" "$CFGC"
       rm -rf /sdcard/#INDRA/Logs/*
       else
-      sed -i "0,/LOGS/ s/LOGS=.*/LOGS=Enabled/" "$CFGC"
+      SET "LOGS" "Enabled" "$CFGC"
     fi
 Menu
 }
@@ -77,10 +79,21 @@ Menu
 Option4 () {
     printf "\033c" 
     if [ "$(READ "BTLOOP" "$CFGC")" = "Enabled" ]; then
-      sed -i "0,/BTLOOP/ s/BTLOOP=.*/BTLOOP=Disabled/" "$CFGC"
+      SET "BTLOOP" "Disabled" "$CFGC"
       else
-      sed -i "0,/BTLOOP/ s/BTLOOP=.*/BTLOOP=Enabled/" "$CFGC"
+      SET "BTLOOP" "Enabled" "$CFGC"
     fi
+Menu
+}
+
+Option5 () {
+    printf "\033c"
+    indc "${G} This option can free some space by deleting module files and logs. ${N}"
+    indc "${G} This option is also useful if you want to update any Toggle or Tune script. ${N}"
+    rm -rf "$BLSRT"/*
+    rm -rf "$CFSRT"/*
+    rm -rf "/sdcard/#INDRA/Logs"/* 
+    sleep 4
 Menu
 }
 
