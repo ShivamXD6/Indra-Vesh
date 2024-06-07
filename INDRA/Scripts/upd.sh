@@ -3,8 +3,8 @@ UPC=$CONF/upc.txt
 OLDUPC=$CONF/old-upc.txt
  
 # Check for Updates
-#mv "$UPC" "$CONF/old-upc.txt"
-#Download "https://raw.githubusercontent.com/ShivamXD6/Indra-Vesh/main/INDRA/Configs/upc.txt" "$UPC"
+mv "$UPC" "$CONF/old-upc.txt"
+Download "https://raw.githubusercontent.com/ShivamXD6/Indra-Vesh/main/INDRA/Configs/upc.txt" "$UPC"
 
 # Get Each Changelog of the Update
 cnt=1
