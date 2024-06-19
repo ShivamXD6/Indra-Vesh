@@ -7,7 +7,6 @@
 
 
 # ⚡Indra Vesh Magisk Module
-## Discontinued for Now.
 - Indra Vesh is a powerful Magisk module inspired by Lord Indra. Where "Vesh" means disguise. 
 - The Power of Lord Indra are being disguised in this module to unleash the true potential of your Android device by enhancing performance, managing system resources efficiently, and providing a suite of customizable tweaks.
 
