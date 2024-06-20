@@ -16,11 +16,11 @@ if ! $BOOTMODE; then
 fi
 
 # Defines & Functions
-if [ -f "/data/INDRA/Configs/blc.txt" ]; then
-  mv "/data/INDRA/Configs/blc.txt" "/data/INDRA/Configs/old-blc.txt"
+DB="/data/INDRA"
+if [ -f "$DB/Configs/blc.txt" ]; then
+  mv "$DB/Configs/blc.txt" "$DB/Configs/old-blc.txt"
 fi
-cp -af "$MODPATH/INDRA" "/data"
-DB=/data/INDRA
+cp -af "$MODPATH/INDRA"/* "$DB"
 
 # INDRA LOGS
 ui_print ""
@@ -109,11 +109,11 @@ indc "          🌟 Many More in Indra's Menu"
 indc "⌨️ Type 'su -c indra' to access Menu and features of Module"
 
 # Preserve User Settings of Toggle Control
-if [ -f "/data/INDRA/Configs/old-blc.txt" ]; then
+if [ -f "$DB/Configs/old-blc.txt" ]; then
 ind "# Preserving User Settings of Toggle Control"
 cnt=1
 while true; do
-  status=$(READ "BLS$cnt" "/data/INDRA/Configs/old-blc.txt")
+  status=$(READ "BLS$cnt" "$DB/Configs/old-blc.txt")
   if [ -z "$status" ]; then
   break
   fi
